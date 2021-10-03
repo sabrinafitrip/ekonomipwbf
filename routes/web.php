@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KotaController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,10 @@ Route::get('/', function () {
 Route::get('/main', function () {
     return view('main');
 });
+
+// Route::get('/supplier', function () {
+//     return view('supplier');
+// });
+
+Route::get('/kota', [KotaController::class, 'index'] );
+Route::get('/supplier', [SupplierController::class, 'index'] );

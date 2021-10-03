@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MyBoutiquee | main</title>
+    <title>Boutique | main</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -29,40 +29,42 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="">MyBoutiquee</a>
+                <a class="navbar-brand" href="">Boutique</a>
                 <a class="navbar-brand hidden" href="">M</a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href=""> <i class="menu-icon fa fa-dashboard"></i>Home </a>
+                        <a href=""> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
             
                     
                         <li class="menu-item-has-children dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Tabel Master</a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Data Master</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">User</a></li>
-                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Supplier</a></li>
-                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Kota</a></li>
-                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">Role</a></li>
-                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Barang</a></li>
-                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Jenis_barang</a></li>
-                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">ukuran</a></li>
-                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">warna</a></li>
-                                <li><i class="fa fa-book"></i><a href="ui-switches.html">history_stock</a></li>
-                                <li><i class="fa fa-th"></i><a href="ui-grids.html">masih bingung 1</a></li>
-                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">masih bingung 2</a></li>
+                                <li><i class="fa fa-user"></i><a href="user">User</a></li>
+                                <li><i class="fa fa-male"></i><a href="supplier">Supplier</a></li>
+                                <li><i class="fa fa-map-marker"></i><a href="kota">Kota</a></li>
+                                <li><i class="fa fa-users"></i><a href="role">Role</a></li>
+                                <li><i class="fa fa-tag"></i><a href="barang">Barang</a></li>
+                                <li><i class="fa fa-tags"></i><a href="jenisbarang">Jenis barang</a></li>
+                                <li><i class="fa fa-pencil"></i><a href="ukuran">Ukuran</a></li>
+                                <li><i class="fa fa-tint"></i><a href="warna">Warna</a></li>
+                        
                             </ul>
 
                             <li class="menu-item-has-children dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Tabel Transaksi</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Data Transaksi</a>
                                 <ul class="sub-menu children dropdown-menu">
-                                    <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">pemesanan</a></li>
-                                    <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">pembayaran</a></li>
-                                    <li><i class="fa fa-bars"></i><a href="ui-tabs.html">penerimaan</a></li>
+                                    <li><i class="fa fa-envelope"></i><a href="pemesanan">Pemesanan</a></li>
+                                    <li><i class="fa fa-envelope-o"></i><a href="pemesanan">Detail Pemesanan</a></li>
+                                    <li><i class="fa fa-money"></i><a href="pembayaran">Pembayaran</a></li>
+                                    <li><i class="fa fa-check"></i><a href="penerimaan">Penerimaan</a></li>
+                                    <li><i class="fa fa-check-square-o"></i><a href="penerimaan">Detail Penerimaan</a></li>
                                 </ul>
+
+                                
 
                     <li>
                         <a href=""> <i class="menu-icon fa fa-puzzle-piece"></i>Status </a>
@@ -166,7 +168,8 @@
         <div class="content mt-3">
 
             <div class="animated fadeIn">
-                Isi home
+                
+                @yield('container')
             </div>
 
         </div>
