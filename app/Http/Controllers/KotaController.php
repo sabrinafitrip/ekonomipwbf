@@ -16,4 +16,12 @@ class KotaController extends Controller
             'data' => $kota
         ]);
     }
+
+    public function add(){
+        return view('addkota');
+    }
+
+    // public function addProcess(Request $request)
 }
+
+?>

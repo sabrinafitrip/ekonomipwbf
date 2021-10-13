@@ -7,7 +7,6 @@
 <body>
 </header><!-- /header -->
 <!-- Header-->
-    </div>
 
 <div class="content mt-3">
     <div class="animated fadeIn">
@@ -16,9 +15,17 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <strong class="card-title">Kota</strong>
+                <div class="pull -left">
+                    <strong>Kota</strong>
                 </div>
-                <div class="card-body">
+
+                <div class="pull-right">
+                    <a href="/kota/addkotaa" class="btn btn-success btn-sm">
+                      <i class="fa fa-plus"></i> Add
+                    </a>
+                  </div>
+
+                <div class="card-body table-responsive">
           <table id="bootstrap-data-table" class="table table-striped table-bordered">
             <thead>
               <tr>
@@ -26,18 +33,25 @@
                 <th>nama_kota</th>
               </tr>
             </thead>
-            @foreach($data as $kota)
+            @foreach($data as $kota )
             <tbody>
               <tr>
                 <td>{{ $kota->ID_KOTA }}</td>
                 <td>{{ $kota->KOTA }}</td>
+                <td class="text-center">
+                  <a href="" class="btn btn-primary btn-sm">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                </td>
               </tr>
-              @endforeach 
+              @endforeach
         </tbody>
       </table>
             </div>
         </div>
     </div>
+
+
     </div>
 </div><!-- .animated -->
 </div><!-- .content -->

@@ -13,7 +13,13 @@ class SupplierController extends Controller
 
         //mengirim data ke view supplier
         return view('supplier', [
-            'data' => $supplier 
+            'data' => $supplier
         ]);
     }
+
+    public function add(){
+        return view('addsupp');
+    }
 }
+
+?>

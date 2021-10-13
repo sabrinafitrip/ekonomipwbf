@@ -15,28 +15,39 @@
 
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    <strong class="card-title">Supplier</strong>
+              <div class="card-header">
+                <div class="pull-left">
+                    <strong>Supplier</strong>
                 </div>
-                <div class="card-body">
+
+                <div class="pull-right">
+                  <a href="/supplier/addsupplier" class="btn btn-success btn-sm">
+                    <i class="fa fa-plus"></i> Add
+                  </a>
+                </div>
+
+                <div class="card-body table-responsive">
           <table id="bootstrap-data-table" class="table table-striped table-bordered">
             <thead>
               <tr>
                 <th>id_sup</th>
-                <th>id_kota</th>
                 <th>nama_sup</th>
                 <th>alamat_sup</th>
                 <th>telp_sup</th>
               </tr>
             </thead>
-            @foreach($data as $supplier)
+            @foreach($data as $supplier )
             <tbody>
               <tr>
                 <td>{{ $supplier->ID_SUP }}</td>
-                <td>{{ $supplier->ID_KOTA }}</td>
                 <td>{{ $supplier->NAMA_SUP }}</td>
                 <td>{{ $supplier->ALAMAT_SUP }}</td>
                 <td>{{ $supplier->TELP_SUP }}</td>
+                <td class="text-center">
+                  <a href="" class="btn btn-primary btn-sm">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                </td>
               </tr>
               @endforeach
         </tbody>
@@ -44,6 +55,8 @@
             </div>
         </div>
     </div>
+
+
     </div>
 </div><!-- .animated -->
 </div><!-- .content -->

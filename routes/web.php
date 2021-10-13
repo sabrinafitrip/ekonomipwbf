@@ -15,12 +15,16 @@ use App\Http\Controllers\SupplierController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
 Route::get('/', function () {
     return view('home');
 });
 
-
-Route::get('/main', function () {
+Route::get('/dashboard', function () {
     return view('main');
 });
 
@@ -29,4 +33,13 @@ Route::get('/main', function () {
 // });
 
 Route::get('/kota', [KotaController::class, 'index'] );
+Route::get('/kota/addkotaa', [KotaController::class, 'add'] );
+
+
 Route::get('/supplier', [SupplierController::class, 'index'] );
+Route::get('/supplier/addsupplier', [SupplierController::class, 'add'] );
+
+
+Route::get('/login', function () {
+    return view('login');
+});

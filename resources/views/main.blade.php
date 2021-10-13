@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Boutique | main</title>
+    <title>Dashboard | Boutique</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -36,7 +36,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href=""> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="/dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
             
                     
@@ -44,14 +44,13 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Data Master</a>
                             <ul class="sub-menu children dropdown-menu">
                                 <li><i class="fa fa-user"></i><a href="user">User</a></li>
-                                <li><i class="fa fa-male"></i><a href="supplier">Supplier</a></li>
-                                <li><i class="fa fa-map-marker"></i><a href="kota">Kota</a></li>
+                                <li><i class="fa fa-male"></i><a href="/supplier">Supplier</a></li>
+                                <li><i class="fa fa-map-marker"></i><a href="/kota">Kota</a></li>
                                 <li><i class="fa fa-users"></i><a href="role">Role</a></li>
                                 <li><i class="fa fa-tag"></i><a href="barang">Barang</a></li>
                                 <li><i class="fa fa-tags"></i><a href="jenisbarang">Jenis barang</a></li>
                                 <li><i class="fa fa-pencil"></i><a href="ukuran">Ukuran</a></li>
                                 <li><i class="fa fa-tint"></i><a href="warna">Warna</a></li>
-                        
                             </ul>
 
                             <li class="menu-item-has-children dropdown">
@@ -67,10 +66,10 @@
                                 
 
                     <li>
-                        <a href=""> <i class="menu-icon fa fa-puzzle-piece"></i>Status </a>
+                        <a href="/"> <i class="menu-icon fa fa-picture-o"></i>Home </a>
                     </li>
                     <li>
-                        <a href=""> <i class="menu-icon fa fa-puzzle-piece"></i>History </a>
+                        <a href="#"> <i class="menu-icon fa fa-puzzle-piece"></i>History </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
