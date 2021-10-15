@@ -43,10 +43,10 @@
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Data Master</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-user"></i><a href="user">User</a></li>
+                                <li><i class="fa fa-user"></i><a href="/user">User</a></li>
                                 <li><i class="fa fa-male"></i><a href="/supplier">Supplier</a></li>
                                 <li><i class="fa fa-map-marker"></i><a href="/kota">Kota</a></li>
-                                <li><i class="fa fa-users"></i><a href="role">Role</a></li>
+                                <li><i class="fa fa-users"></i><a href="/role">Role</a></li>
                                 <li><i class="fa fa-tag"></i><a href="barang">Barang</a></li>
                                 <li><i class="fa fa-tags"></i><a href="jenisbarang">Jenis barang</a></li>
                                 <li><i class="fa fa-pencil"></i><a href="ukuran">Ukuran</a></li>

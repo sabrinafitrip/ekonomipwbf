@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KotaController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +41,14 @@ Route::get('/kota/addkotaa', [KotaController::class, 'add'] );
 
 Route::get('/supplier', [SupplierController::class, 'index'] );
 Route::get('/supplier/addsupplier', [SupplierController::class, 'add'] );
+
+
+Route::get('/role', [RoleController::class, 'index'] );
+Route::get('/role/addrole', [RoleController::class, 'add'] );
+
+
+Route::get('/user', [UserController::class, 'index'] );
+Route::get('/user/adduser', [UserController::class, 'add'] );
 
 
 Route::get('/login', function () {
