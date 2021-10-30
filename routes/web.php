@@ -6,6 +6,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisController;
+use App\Http\Controllers\BarangController;
 
 
 /*
@@ -66,6 +67,17 @@ Route::post('/jenisbarang/updatejenis', [JenisController::class, 'update'] );
 // Route::delete('/jenisbarang/hapusjenis{ID_JB}', [JenisController::class, 'delete'] );
 // Route::get('/jenisbarang/hapusjenis{ID_JB}', [JenisController::class, 'hapus'] );
 Route::delete('/jenisbarang/hapusjenis{ID_JB}', [JenisController::class, 'hapus'] );
+
+
+Route::get('/barang', [BarangController::class, 'index'] );
+Route::get('/barang/addbarang', [BarangController::class, 'add'] );
+Route::post('/barang/store', [BarangController::class, 'store'] );
+Route::get('/barang/editbarang{KODE_BARANG}', [BarangController::class, 'edit'] );
+Route::post('/barang/updatebarang', [BarangController::class, 'update'] );
+// Route::get('/barang/hapusbarang{KODE_BARANG}', [BarangController::class, 'delete'] );
+// Route::delete('/barang/hapusbarang{KODE_BARANG}', [BarangController::class, 'delete'] );
+// Route::get('/barang/hapusbarang{KODE_BARANG}', [BarangController::class, 'hapus'] );
+Route::delete('/barang/hapusbarang{KODE_BARANG}', [BarangController::class, 'hapus'] );
 
 
 Route::get('/role', [RoleController::class, 'index'] );
