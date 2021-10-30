@@ -11,12 +11,12 @@
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
-
+        @foreach($supplier as $data )
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                 <div class="pull -left">
-                    <strong>Tambah Supplier</strong>
+                    <strong>Edit Supplier</strong>
                 </div>
 
                 <div class="pull-right">
@@ -28,13 +28,14 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 offset-md-4">
-                            <form action="/supplier/store" method="post">
+                            <form action="/supplier/updatesup" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label>Nama Supplier</label>
-                                    <input type="text" name="nama_sup" class="form-control" autofocus required>
+                                    <input type="text" name="nama_sup" class="form-control" value="{{ $data->NAMA_SUP }}" autofocus required>
+                                    <input type="hidden" class="form-control" value="{{ $data->ID_SUP }}" value="" name="id"/>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>kota</label>
                                     <select name="id_kota" class="form-control">
                                         <option value="">- pilih -</option> 
@@ -42,20 +43,23 @@
                                             <option value="{{ $data->ID_KOTA }}">{{ $data->KOTA }}</option>
                                         @endforeach         
                                 </select>
-                                </div>
+                            </div> --}}
                                 <div class="form-group">
                                     <label>Alamat Supplier</label>
-                                    <input type="text" name="alamat_sup" class="form-control">
+                                    <input type="text" name="alamat_sup" value="{{ $data->ALAMAT_SUP }}" class="form-control">
+                                    <input type="hidden" class="form-control" value="{{ $data->ID_SUP }}" value="" name="id"/>
                                 </div>
                                 <div class="form-group">
                                     <label>No.Telepon Supplier</label>
-                                    <input type="tel" name="telp_sup" class="form-control">
+                                    <input type="tel" name="telp_sup" value="{{ $data->TELP_SUP }}" class="form-control">
+                                    <input type="hidden" class="form-control" value="{{ $data->ID_SUP }}" value="" name="id"/>
                                 </div>
 
                                     <button type="submit" class="btn btn-success">Save</button>
                             </form>
                         </div>
                     </div>
+                    @endforeach
             </div>
         </div>
     </div>

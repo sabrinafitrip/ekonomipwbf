@@ -46,6 +46,13 @@ Route::delete('/kota/hapuskota{ID_KOTA}', [KotaController::class, 'hapus'] );
 
 Route::get('/supplier', [SupplierController::class, 'index'] );
 Route::get('/supplier/addsupplier', [SupplierController::class, 'add'] );
+Route::post('/supplier/store', [SupplierController::class, 'store'] );
+Route::get('/supplier/editsupplier{ID_SUP}', [SupplierController::class, 'edit'] );
+Route::post('/supplier/updatesup', [SupplierController::class, 'update'] );
+// Route::get('/supplier/hapussup{ID_SUP}', [SupplierController::class, 'delete'] );
+// Route::delete('/supplier/hapussup{ID_SUP}', [SupplierController::class, 'delete'] );
+// Route::get('/supplier/hapussup{ID_SUP}', [SupplierController::class, 'hapus'] );
+Route::delete('/supplier/hapussup{ID_SUP}', [SupplierController::class, 'hapus'] );
 
 
 Route::get('/role', [RoleController::class, 'index'] );
