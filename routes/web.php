@@ -31,12 +31,17 @@ Route::get('/dashboard', function () {
     return view('main');
 });
 
-// Route::get('/supplier', function () {
-//     return view('supplier');
-// });
 
 Route::get('/kota', [KotaController::class, 'index'] );
-Route::get('/kota/addkotaa', [KotaController::class, 'add'] );
+Route::get('/kota/addkota', [KotaController::class, 'add'] );
+Route::post('/kota/store', [KotaController::class, 'store'] );
+// Route::post('/kota/store','App\Http\Controllers\KotaController@store');
+Route::get('/kota/editkota{ID_KOTA}', [KotaController::class, 'edit'] );
+Route::post('/kota/update', [KotaController::class, 'update'] );
+// Route::get('/kota/hapuskota{ID_KOTA}', [KotaController::class, 'delete'] );
+// Route::delete('/kota/hapuskota{ID_KOTA}', [KotaController::class, 'delete'] );
+// Route::get('/kota/hapuskota{ID_KOTA}', [KotaController::class, 'hapus'] );
+Route::delete('/kota/hapuskota{ID_KOTA}', [KotaController::class, 'hapus'] );
 
 
 Route::get('/supplier', [SupplierController::class, 'index'] );

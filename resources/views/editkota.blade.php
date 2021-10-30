@@ -11,12 +11,12 @@
 <div class="content mt-3">
     <div class="animated fadeIn">
         <div class="row">
-
+        @foreach($kota as $data )
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                 <div class="pull -left">
-                    <strong>Tambah Kota</strong>
+                    <strong>Edit Kota</strong>
                 </div>
 
                 <div class="pull-right">
@@ -28,16 +28,18 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 offset-md-4">
-                            <form action="/kota/store" method="post">
+                            <form action="/kota/update" method="post">
                                 @csrf
                                 <div class="form-group" >
                                     <label>Nama Kota</label>
-                                    <input type="text" name="Kota" class="form-control" autofocus required>
+                                    <input type="text" name="Kota" class="form-control" value="{{ $data->KOTA }}" autofocus required>
+                                    <input type="hidden" class="form-control" value="{{ $data->ID_KOTA }}" value="" name="id"/>
                                 </div>
                                     <button type="submit" class="btn btn-success">Save</button>
                             </form>
                         </div>
                     </div>
+                    @endforeach
             </div>
         </div>
     </div>

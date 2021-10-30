@@ -10,6 +10,11 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
+      @if (session('status'))
+            <div class="alert alert-success">
+            {{ session('status') }}
+            </div>
+        @endif
         <div class="row">
 
         <div class="col-md-12">
@@ -20,7 +25,7 @@
                 </div>
 
                 <div class="pull-right">
-                    <a href="/kota/addkotaa" class="btn btn-success btn-sm">
+                    <a href="/kota/addkota" class="btn btn-success btn-sm">
                       <i class="fa fa-plus"></i> Add
                     </a>
                   </div>
@@ -29,19 +34,32 @@
           <table id="bootstrap-data-table" class="table table-striped table-bordered">
             <thead>
               <tr>
+                <th>No</th>
                 <th>id_kota</th>
-                <th>nama_kota</th>
+                <th>nama kota</th>
+                <th></th>
               </tr>
             </thead>
             @foreach($data as $kota )
             <tbody>
               <tr>
+                <td>{{ $loop->iteration }}</td>
                 <td>{{ $kota->ID_KOTA }}</td>
                 <td>{{ $kota->KOTA }}</td>
                 <td class="text-center">
-                  <a href="" class="btn btn-primary btn-sm">
+                  <a href="/kota/editkota{{ $kota->ID_KOTA }}" class="btn btn-primary btn-sm">
                     <i class="fa fa-pencil"></i>
                   </a>
+                  <form action="/kota/hapuskota{{ $kota->ID_KOTA }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-danger btn-sm">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </form>
+                    {{-- <a href="/kota/hapuskota{{ $kota->ID_KOTA }}" class="btn btn-danger btn-sm">
+                      <i class="fa fa-trash"></i>
+                  </a> --}}
                 </td>
               </tr>
               @endforeach
