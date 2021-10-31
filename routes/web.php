@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\UkuranController;
+use App\Http\Controllers\WarnaController;
 
 
 /*
@@ -104,6 +105,18 @@ Route::post('/ukuran/update', [UkuranController::class, 'update'] );
 // Route::delete('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'delete'] );
 // Route::get('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'hapus'] );
 Route::delete('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'hapus'] );
+
+
+Route::get('/warna', [WarnaController::class, 'index'] );
+Route::get('/warna/addwarna', [WarnaController::class, 'add'] );
+Route::post('/warna/store', [WarnaController::class, 'store'] );
+// Route::post('/warna/store','App\Http\Controllers\KotaController@store');
+Route::get('/warna/editwarna{ID_WARNA}', [WarnaController::class, 'edit'] );
+Route::post('/warna/update', [WarnaController::class, 'update'] );
+// Route::get('/warna/hapuswarna{ID_WARNA}', [WarnaController::class, 'delete'] );
+// Route::delete('/warna/hapuswarna{ID_WARNA}', [WarnaController::class, 'delete'] );
+// Route::get('/warna/hapuswarna{ID_WARNA}', [WarnaController::class, 'hapus'] );
+Route::delete('/warna/hapuswarna{ID_WARNA}', [WarnaController::class, 'hapus'] );
 
 
 Route::get('/user', [UserController::class, 'index'] );
