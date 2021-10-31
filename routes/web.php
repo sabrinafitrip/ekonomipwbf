@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\UkuranController;
 
 
 /*
@@ -91,6 +92,18 @@ Route::post('/role/update', [RoleController::class, 'update'] );
 //(SOFT DELETE)
 // Route::get('/role/hapusrole{ID_ROLE}', [RoleController::class, 'hapus'] );
 Route::delete('/role/hapusrole{ID_ROLE}', [RoleController::class, 'hapus'] );
+
+
+Route::get('/ukuran', [UkuranController::class, 'index'] );
+Route::get('/ukuran/addukuran', [UkuranController::class, 'add'] );
+Route::post('/ukuran/store', [UkuranController::class, 'store'] );
+// Route::post('/ukuran/store','App\Http\Controllers\UkuranController@store');
+Route::get('/ukuran/editukuran{ID_UKURAN}', [UkuranController::class, 'edit'] );
+Route::post('/ukuran/update', [UkuranController::class, 'update'] );
+// Route::get('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'delete'] );
+// Route::delete('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'delete'] );
+// Route::get('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'hapus'] );
+Route::delete('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'hapus'] );
 
 
 Route::get('/user', [UserController::class, 'index'] );
