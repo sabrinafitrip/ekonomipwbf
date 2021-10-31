@@ -35,6 +35,10 @@ Route::get('/dashboard', function () {
     return view('main');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
 
 Route::get('/kota', [KotaController::class, 'index'] );
 Route::get('/kota/addkota', [KotaController::class, 'add'] );
