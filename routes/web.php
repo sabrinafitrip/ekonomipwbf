@@ -61,6 +61,9 @@ Route::post('/supplier/updatesup', [SupplierController::class, 'update'] );
 // Route::delete('/supplier/hapussup{ID_SUP}', [SupplierController::class, 'delete'] );
 // Route::get('/supplier/hapussup{ID_SUP}', [SupplierController::class, 'hapus'] );
 Route::delete('/supplier/hapussup{ID_SUP}', [SupplierController::class, 'hapus'] );
+Route::get('/supplier/trashsup', [SupplierController::class, 'trash'] );
+Route::get('/supplier/restoresup{ID_SUP?}', [SupplierController::class, 'restore'] );
+Route::get('/supplier/deletesup{ID_SUP?}', [SupplierController::class, 'delete'] );
 
 
 Route::get('/jenisbarang', [JenisController::class, 'index'] );
@@ -84,6 +87,9 @@ Route::post('/barang/updatebarang', [BarangController::class, 'update'] );
 // Route::delete('/barang/hapusbarang{KODE_BARANG}', [BarangController::class, 'delete'] );
 // Route::get('/barang/hapusbarang{KODE_BARANG}', [BarangController::class, 'hapus'] );
 Route::delete('/barang/hapusbarang{KODE_BARANG}', [BarangController::class, 'hapus'] );
+Route::get('/barang/trashbarang', [BarangController::class, 'trash'] );
+Route::get('/barang/restorebarang{KODE_BARANG?}', [BarangController::class, 'restore'] );
+Route::get('/barang/deletebarang{KODE_BARANG?}', [BarangController::class, 'delete'] );
 
 
 Route::get('/role', [RoleController::class, 'index'] );

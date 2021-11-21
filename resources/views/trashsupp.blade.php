@@ -21,15 +21,18 @@
             <div class="card">
               <div class="card-header">
                 <div class="pull-left">
-                    <strong>Supplier</strong>
+                    <strong>Data Supplier yang terhapus</strong>
                 </div>
-                
+
                 <div class="pull-right">
-                  <a href="/supplier/trashsup" class="btn btn-danger btn-sm">
-                    <i class="fa fa-trash"></i> Sampah
+                  <a href="/supplier/deletesup" class="btn btn-danger btn-sm">
+                    <i class="fa fa-trash"></i> Delete All
                   </a>
-                  <a href="/supplier/addsupplier" class="btn btn-success btn-sm">
-                    <i class="fa fa-plus"></i> Add
+                  <a href="/supplier/restoresup" class="btn btn-info btn-sm">
+                    <i class="fa fa-undo"></i> Restore All
+                  </a>
+                  <a href="/supplier" class="btn btn-secondary btn-sm">
+                    <i class="fa fa-chevron-left"></i> Back
                   </a>
                 </div>
 
@@ -47,6 +50,7 @@
               </tr>
             </thead>
             <tbody>
+                @if ($data->count()>0)
             @foreach($data as $supplier )
               <tr>
                 <td>{{ $loop->iteration }}</td>
@@ -56,22 +60,20 @@
                 <td>{{ $supplier->ALAMAT_SUP }}</td>
                 <td>{{ $supplier->TELP_SUP }}</td>
                 <td class="text-center">
-                  <a href="/supplier/editsupplier{{ $supplier->ID_SUP }}" class="btn btn-primary btn-sm">
-                    <i class="fa fa-pencil"></i>
+                  <a href="/supplier/restoresup{{ $supplier->ID_SUP }}" class="btn btn-info btn-sm">
+                    Restore
                   </a>
-                  <form action="/supplier/hapussup{{ $supplier->ID_SUP }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
-                    @method('delete')
-                    @csrf
-                    <button class="btn btn-danger btn-sm">
-                      <i class="fa fa-trash"></i>
-                    </button>
-                  </form>
-                  {{-- <a href="/supplier/hapussup{{ $supplier->ID_SUP }}" class="btn btn-danger btn-sm">
-                    <i class="fa fa-trash"></i>
-                </a> --}}
+                  <a href="/supplier/deletesup{{ $supplier->ID_SUP }}" class="btn btn-danger btn-sm" onclick="return confirm('yakin hapus permanen?')">
+                    Delete Permanent
+                </a>
                 </td>
               </tr>
               @endforeach
+              @else
+              <tr>
+                <td colspan="7" class="text-center">Data Kosong</td>
+              </tr>
+              @endif
         </tbody>
       </table>
             </div>

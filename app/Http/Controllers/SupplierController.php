@@ -90,6 +90,30 @@ class SupplierController extends Controller
     	return redirect('/supplier');
         
     }
+
+    public function trash(){
+        $supplier = supplier::onlyTrashed()->get();
+        return view('trashsupp', ['data' => $supplier]);
+    }
+
+    public function restore($id=null){
+        if($id != null){
+            $supplier = supplier::onlyTrashed()->where('ID_SUP',$id)->restore();
+        } else{
+            $supplier = supplier::onlyTrashed()->restore();
+        }
+        return redirect('/supplier/trashsup')->with('status','data supplier berhasil di restore');
+    }
+
+    public function delete($id=null){
+        if($id != null){
+            $supplier = supplier::onlyTrashed()->where('ID_SUP',$id)->forceDelete();
+        } else{
+            $supplier = supplier::onlyTrashed()->forceDelete();
+        }
+        return redirect('/supplier/trashsup')->with('status','data supplier berhasil di hapus permanen');
+    }
+
 }
 
 ?>
