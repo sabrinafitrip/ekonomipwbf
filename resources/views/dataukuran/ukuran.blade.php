@@ -40,10 +40,11 @@
                 <th></th>
               </tr>
             </thead>
-            @foreach($data as $ukuran )
+            @foreach($data as $key => $ukuran )
             <tbody>
               <tr>
-                <td>{{ $loop->iteration }}</td>
+                {{-- <td>{{ $loop->iteration }}</td> --}}
+                <td>{{ $data->firstItem() + $key }}</td>
                 <td>{{ $ukuran->ID_UKURAN }}</td>
                 <td>{{ $ukuran->UKURAN }}</td>
                 <td class="text-center">
@@ -65,6 +66,17 @@
               @endforeach
         </tbody>
       </table>
+      <div>
+        Showing 
+        {{ $data->firstItem() }}
+        to
+        {{ $data->lastItem() }}
+        of
+        {{ $data->total() }}
+        entries
+      </div>
+      <div class="pull-right">{{ $data->links() }}</div>
+      
             </div>
         </div>
     </div>

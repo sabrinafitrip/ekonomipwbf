@@ -11,7 +11,7 @@ class SupplierController extends Controller
 {
     public function index(){
         //ambil data dari table supplier
-        $supplier = DB::table('supplier')->where('DELETED_AT',null)->get();
+        $supplier = DB::table('supplier')->where('DELETED_AT',null)->paginate(5);
 
         //mengirim data ke view supplier
         return view('supplier', [

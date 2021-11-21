@@ -11,7 +11,7 @@ class BarangController extends Controller
 {
     public function index(){
         //ambil data dari table barang
-        $barang = DB::table('barang')->where('DELETED_AT',null)->get();
+        $barang = DB::table('barang')->where('DELETED_AT',null)->paginate(5);
 
         //mengirim data ke view barang
         return view('databarang.barang', [

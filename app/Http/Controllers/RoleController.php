@@ -10,7 +10,7 @@ class RoleController extends Controller
 {
     public function index(){
         //ambil data dari table role
-        $role = DB::table('role')->where('DELETED_AT',null)->get();
+        $role = DB::table('role')->where('DELETED_AT',null)->paginate(5);
 
         //mengirim data ke view role
         return view('datarole.role', [

@@ -10,7 +10,7 @@ class UkuranController extends Controller
 {
     public function index(){
         //ambil data dari table ukuran
-        $ukuran = DB::table('ukuran')->where('DELETED_AT',null)->get();
+        $ukuran = DB::table('ukuran')->where('DELETED_AT',null)->paginate(5);
 
         //mengirim data ke view ukuran
         return view('dataukuran.ukuran', [

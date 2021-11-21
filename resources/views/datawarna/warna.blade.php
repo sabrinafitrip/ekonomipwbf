@@ -40,10 +40,11 @@
                 <th></th>
               </tr>
             </thead>
-            @foreach($data as $warna )
+            @foreach($data as$key => $warna )
             <tbody>
               <tr>
-                <td>{{ $loop->iteration }}</td>
+                {{-- <td>{{ $loop->iteration }}</td> --}}
+                <td>{{ $data->firstItem() + $key }}</td>
                 <td>{{ $warna->ID_WARNA }}</td>
                 <td>{{ $warna->WARNA }}</td>
                 <td class="text-center">
@@ -65,6 +66,16 @@
               @endforeach
         </tbody>
       </table>
+      <div>
+        Showing 
+        {{ $data->firstItem() }}
+        to
+        {{ $data->lastItem() }}
+        of
+        {{ $data->total() }}
+        entries
+      </div>
+      <div class="pull-right">{{ $data->links() }}</div>
             </div>
         </div>
     </div>

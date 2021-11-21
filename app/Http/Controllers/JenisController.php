@@ -11,7 +11,7 @@ class JenisController extends Controller
 {
     public function index(){
         //ambil data dari table jenisbarang
-        $jenis_barang = DB::table('jenis_barang')->where('DELETED_AT',null)->get();
+        $jenis_barang = DB::table('jenis_barang')->where('DELETED_AT',null)->paginate(5);
 
         //mengirim data ke view jenisbarang
         return view('jenisbarang.jenis', [

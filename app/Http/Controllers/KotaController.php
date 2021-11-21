@@ -11,7 +11,7 @@ class KotaController extends Controller
 {
     public function index(){
         //ambil data dari table kota
-        $kota = DB::table('kota')->where('DELETED_AT',null) ->get();
+        $kota = DB::table('kota')->where('DELETED_AT',null)->paginate(5);
 
         //mengirim data ke view kota
         return view('kota', [

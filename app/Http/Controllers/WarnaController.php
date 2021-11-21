@@ -10,7 +10,7 @@ class WarnaController extends Controller
 {
     public function index(){
         //ambil data dari table warna
-        $warna = DB::table('warna')->where('DELETED_AT',null)->get();
+        $warna = DB::table('warna')->where('DELETED_AT',null)->paginate(5);
 
         //mengirim data ke view warna
         return view('datawarna.warna', [

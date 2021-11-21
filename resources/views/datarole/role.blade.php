@@ -40,10 +40,11 @@
                 <th></th>
               </tr>
             </thead>
-            @foreach($data as $role )
+            @foreach($data as $key => $role )
             <tbody>
               <tr>
-                <td>{{ $loop->iteration }}</td>
+                {{-- <td>{{ $loop->iteration }}</td> --}}
+                <td>{{ $data->firstItem() + $key }}</td>
                 <td>{{ $role->ID_ROLE }}</td>
                 <td>{{ $role->JENIS_ROLE }}</td>
                 <td class="text-center">
@@ -65,6 +66,17 @@
               @endforeach
         </tbody>
       </table>
+      <div>
+        Showing 
+        {{ $data->firstItem() }}
+        to
+        {{ $data->lastItem() }}
+        of
+        {{ $data->total() }}
+        entries
+      </div>
+      <div class="pull-right">{{ $data->links() }}</div>
+      
             </div>
         </div>
     </div>
