@@ -19,6 +19,21 @@ class JenisController extends Controller
         ]);
     }
 
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table supplier sesuai pencarian data
+		$jenis_barang = DB::table('jenis_barang')
+		->where('JENIS_BARANG','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data supplier ke view index
+		return view('jenisbarang.jenis',['data' => $jenis_barang]);
+ 
+	}
+
     public function add(){
         return view('jenisbarang.addjenis');
     }
@@ -82,5 +97,29 @@ class JenisController extends Controller
     	return redirect('/jenisbarang');
         
     }
+
+    public function trash(){
+        $jenis_barang = Jenis::onlyTrashed()->get();
+        return view('jenisbarang.trashjenis', ['data' => $jenis_barang]);
+    }
+
+    public function restore($id=null){
+        if($id != null){
+            $jenis_barang = Jenis::onlyTrashed()->where('ID_JB',$id)->restore();
+        } else{
+            $jenis_barang = Jenis::onlyTrashed()->restore();
+        }
+        return redirect('/jenisbarang/trashjenis')->with('status','jenis barang berhasil di restore');
+    }
+
+    public function delete($id=null){
+        if($id != null){
+            $jenis_barang = Jenis::onlyTrashed()->where('ID_JB',$id)->forceDelete();
+        } else{
+            $jenis_barang = Jenis::onlyTrashed()->forceDelete();
+        }
+        return redirect('/jenisbarang/trashjenis')->with('status','jenis barang berhasil di hapus permanen');
+    }
+    
     
 }

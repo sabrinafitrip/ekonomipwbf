@@ -20,6 +20,21 @@ class SupplierController extends Controller
 
     }
 
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table supplier sesuai pencarian data
+		$supplier = DB::table('supplier')
+		->where('NAMA_SUP','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data supplier ke view index
+		return view('supplier',['data' => $supplier]);
+ 
+	}
+
     public function add(){
         $kotas= kota::all();
         return view('addsupp', compact('kotas'));

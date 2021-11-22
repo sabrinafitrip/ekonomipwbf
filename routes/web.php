@@ -50,6 +50,9 @@ Route::post('/kota/update', [KotaController::class, 'update'] );
 // Route::delete('/kota/hapuskota{ID_KOTA}', [KotaController::class, 'delete'] );
 // Route::get('/kota/hapuskota{ID_KOTA}', [KotaController::class, 'hapus'] );
 Route::delete('/kota/hapuskota{ID_KOTA}', [KotaController::class, 'hapus'] );
+Route::get('/kota/trashkota', [KotaController::class, 'trash'] );
+Route::get('/kota/restorekota{ID_KOTA?}', [KotaController::class, 'restore'] );
+Route::get('/kota/deletekota{ID_KOTA?}', [KotaController::class, 'delete'] );
 
 
 Route::get('/supplier', [SupplierController::class, 'index'] );
@@ -76,6 +79,9 @@ Route::post('/jenisbarang/updatejenis', [JenisController::class, 'update'] );
 // Route::delete('/jenisbarang/hapusjenis{ID_JB}', [JenisController::class, 'delete'] );
 // Route::get('/jenisbarang/hapusjenis{ID_JB}', [JenisController::class, 'hapus'] );
 Route::delete('/jenisbarang/hapusjenis{ID_JB}', [JenisController::class, 'hapus'] );
+Route::get('/jenisbarang/trashjenis', [JenisController::class, 'trash'] );
+Route::get('/jenisbarang/restorejenis{ID_JB?}', [JenisController::class, 'restore'] );
+Route::get('/jenisbarang/deletejenis{ID_JB?}', [JenisController::class, 'delete'] );
 
 
 Route::get('/barang', [BarangController::class, 'index'] );
@@ -103,6 +109,9 @@ Route::post('/role/update', [RoleController::class, 'update'] );
 //(SOFT DELETE)
 // Route::get('/role/hapusrole{ID_ROLE}', [RoleController::class, 'hapus'] );
 Route::delete('/role/hapusrole{ID_ROLE}', [RoleController::class, 'hapus'] );
+Route::get('/role/trashrole', [RoleController::class, 'trash'] );
+Route::get('/role/restorerole{ID_ROLE?}', [RoleController::class, 'restore'] );
+Route::get('/role/deleterole{ID_ROLE?}', [RoleController::class, 'delete'] );
 
 
 Route::get('/ukuran', [UkuranController::class, 'index'] );
@@ -115,6 +124,9 @@ Route::post('/ukuran/update', [UkuranController::class, 'update'] );
 // Route::delete('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'delete'] );
 // Route::get('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'hapus'] );
 Route::delete('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'hapus'] );
+Route::get('/ukuran/trashukuran', [UkuranController::class, 'trash'] );
+Route::get('/ukuran/restoreukuran{ID_UKURAN?}', [UkuranController::class, 'restore'] );
+Route::get('/ukuran/deleteukuran{ID_UKURAN?}', [UkuranController::class, 'delete'] );
 
 
 Route::get('/warna', [WarnaController::class, 'index'] );
@@ -127,6 +139,9 @@ Route::post('/warna/update', [WarnaController::class, 'update'] );
 // Route::delete('/warna/hapuswarna{ID_WARNA}', [WarnaController::class, 'delete'] );
 // Route::get('/warna/hapuswarna{ID_WARNA}', [WarnaController::class, 'hapus'] );
 Route::delete('/warna/hapuswarna{ID_WARNA}', [WarnaController::class, 'hapus'] );
+Route::get('/warna/trashwarna', [WarnaController::class, 'trash'] );
+Route::get('/warna/restorewarna{ID_WARNA?}', [WarnaController::class, 'restore'] );
+Route::get('/warna/deletewarna{ID_WARNA?}', [WarnaController::class, 'delete'] );
 
 
 Route::get('/user', [UserController::class, 'index'] );

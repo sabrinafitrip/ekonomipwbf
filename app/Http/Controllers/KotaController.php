@@ -19,6 +19,21 @@ class KotaController extends Controller
         ]);
     }
 
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table supplier sesuai pencarian data
+		$kota = DB::table('kota')
+		->where('KOTA','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data supplier ke view index
+		return view('kota',['data' => $kota]);
+ 
+	}
+
     public function add(){
         return view('addkota');
 
@@ -82,6 +97,29 @@ class KotaController extends Controller
         
     	return redirect('/kota');
         
+    }
+
+    public function trash(){
+        $kota = kota::onlyTrashed()->get();
+        return view('trashkota', ['data' => $kota]);
+    }
+
+    public function restore($id=null){
+        if($id != null){
+            $kota = kota::onlyTrashed()->where('ID_KOTA',$id)->restore();
+        } else{
+            $kota = kota::onlyTrashed()->restore();
+        }
+        return redirect('/kota/trashkota')->with('status','data kota berhasil di restore');
+    }
+
+    public function delete($id=null){
+        if($id != null){
+            $kota = kota::onlyTrashed()->where('ID_KOTA',$id)->forceDelete();
+        } else{
+            $kota = kota::onlyTrashed()->forceDelete();
+        }
+        return redirect('/kota/trashkota')->with('status','data kota berhasil di hapus permanen');
     }
 }
 

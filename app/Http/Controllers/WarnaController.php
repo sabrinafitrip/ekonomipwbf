@@ -18,6 +18,21 @@ class WarnaController extends Controller
         ]);
     }
 
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table supplier sesuai pencarian data
+		$warna = DB::table('warna')
+		->where('WARNA','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data supplier ke view index
+		return view('datawarna.warna',['data' => $warna]);
+ 
+	}
+
     public function add(){
         return view('datawarna.addwarna');
     }
@@ -82,6 +97,29 @@ class WarnaController extends Controller
         
     	return redirect('/warna');
         
+    }
+
+    public function trash(){
+        $warna = Warna::onlyTrashed()->get();
+        return view('datawarna.trashwarna', ['data' => $warna]);
+    }
+
+    public function restore($id=null){
+        if($id != null){
+            $warna = Warna::onlyTrashed()->where('ID_WARNA',$id)->restore();
+        } else{
+            $warna = Warna::onlyTrashed()->restore();
+        }
+        return redirect('/warna/trashwarna')->with('status','data warna berhasil di restore');
+    }
+
+    public function delete($id=null){
+        if($id != null){
+            $warna = Warna::onlyTrashed()->where('ID_WARNA',$id)->forceDelete();
+        } else{
+            $warna = Warna::onlyTrashed()->forceDelete();
+        }
+        return redirect('/warna/trashwarna')->with('status','data warna berhasil di hapus permanen');
     }
 
 }

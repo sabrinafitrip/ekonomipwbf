@@ -18,6 +18,21 @@ class UkuranController extends Controller
         ]);
     }
 
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table supplier sesuai pencarian data
+		$ukuran = DB::table('ukuran')
+		->where('UKURAN','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data supplier ke view index
+		return view('dataukuran.ukuran',['data' => $ukuran]);
+ 
+	}
+
     public function add(){
         return view('dataukuran.addukuran');
     }
@@ -82,6 +97,29 @@ class UkuranController extends Controller
         
     	return redirect('/ukuran');
         
+    }
+
+    public function trash(){
+        $ukuran = Ukuran::onlyTrashed()->get();
+        return view('dataukuran.trashukuran', ['data' => $ukuran]);
+    }
+
+    public function restore($id=null){
+        if($id != null){
+            $ukuran = Ukuran::onlyTrashed()->where('ID_UKURAN',$id)->restore();
+        } else{
+            $ukuran = Ukuran::onlyTrashed()->restore();
+        }
+        return redirect('/ukuran/trashukuran')->with('status','data ukuran berhasil di restore');
+    }
+
+    public function delete($id=null){
+        if($id != null){
+            $ukuran = Ukuran::onlyTrashed()->where('ID_UKURAN',$id)->forceDelete();
+        } else{
+            $ukuran = Ukuran::onlyTrashed()->forceDelete();
+        }
+        return redirect('/ukuran/trashukuran')->with('status','data ukuran berhasil di hapus permanen');
     }
 
 }

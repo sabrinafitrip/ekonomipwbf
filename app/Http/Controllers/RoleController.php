@@ -18,6 +18,21 @@ class RoleController extends Controller
         ]);
     }
 
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table supplier sesuai pencarian data
+		$role = DB::table('role')
+		->where('JENIS_ROLE','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data supplier ke view index
+		return view('datarole.',['datarole.role' => $role]);
+ 
+	}
+
     public function add(){
         return view('datarole.addrole');
     }
@@ -82,6 +97,29 @@ class RoleController extends Controller
         
     	return redirect('/role');
         
+    }
+
+    public function trash(){
+        $role = Role::onlyTrashed()->get();
+        return view('datarole.trashrole', ['data' => $role]);
+    }
+
+    public function restore($id=null){
+        if($id != null){
+            $role = Role::onlyTrashed()->where('ID_ROLE',$id)->restore();
+        } else{
+            $role = Role::onlyTrashed()->restore();
+        }
+        return redirect('/role/trashrole')->with('status','data role berhasil di restore');
+    }
+
+    public function delete($id=null){
+        if($id != null){
+            $role = Role::onlyTrashed()->where('ID_ROLE',$id)->forceDelete();
+        } else{
+            $role = Role::onlyTrashed()->forceDelete();
+        }
+        return redirect('/role/trashrole')->with('status','data role berhasil di hapus permanen');
     }
 
 }

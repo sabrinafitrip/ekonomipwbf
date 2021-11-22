@@ -16,6 +16,13 @@
             </div>
         @endif
         <div class="row">
+          <div class="form-group">
+            <label>Cari Data Warna :</label>
+            <form action="/warna/cari" method="GET">
+            <input type="text" name="cari" placeholder=" cari data " value="{{ old('cari') }}">
+            <input type="submit" value="Cari">
+            </form>
+          </div>
 
         <div class="col-md-12">
             <div class="card">
@@ -25,6 +32,9 @@
                 </div>
 
                 <div class="pull-right">
+                  <a href="/warna/trashwarna" class="btn btn-danger btn-sm">
+                    <i class="fa fa-trash"></i> Sampah
+                  </a>
                     <a href="/warna/addwarna" class="btn btn-success btn-sm">
                       <i class="fa fa-plus"></i> Add
                     </a>

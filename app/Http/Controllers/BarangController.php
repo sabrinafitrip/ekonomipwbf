@@ -20,6 +20,21 @@ class BarangController extends Controller
 
     }
 
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table supplier sesuai pencarian data
+		$barang = DB::table('barang')
+		->where('NAMA_BARANG','like',"%".$cari."%")
+		->paginate();
+ 
+    		// mengirim data supplier ke view index
+		return view('databarang.barang',['data' => $barang]);
+ 
+	}
+
     public function add(){
         $jenis_barangs= Jenis::all();
         return view('databarang.addbarang', compact('jenis_barangs'));
