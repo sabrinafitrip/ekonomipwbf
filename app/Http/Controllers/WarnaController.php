@@ -18,6 +18,16 @@ class WarnaController extends Controller
         ]);
     }
 
+    public function cetak(){
+        //ambil data dari table warna
+        $cetakWarna = DB::table('warna')->where('DELETED_AT',null)->get();
+
+        //mengirim data ke view warna
+        return view('datawarna.cetakwarna', [
+            'data' => $cetakWarna
+        ]);
+    }
+
     public function cari(Request $request)
 	{
 		// menangkap data pencarian

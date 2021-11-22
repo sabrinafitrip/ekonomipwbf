@@ -35,6 +35,9 @@
                   <a href="/ukuran/trashukuran" class="btn btn-danger btn-sm">
                     <i class="fa fa-trash"></i> Sampah
                   </a>
+                  <a href="/ukuran/cetakukuran" target="_blank" class="btn btn-primary btn-sm">
+                    <i class="fa fa-print"></i> Print
+                  </a>
                     <a href="/ukuran/addukuran" class="btn btn-success btn-sm">
                       <i class="fa fa-plus"></i> Add
                     </a>

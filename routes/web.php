@@ -54,6 +54,7 @@ Route::delete('/kota/hapuskota{ID_KOTA}', [KotaController::class, 'hapus'] );
 Route::get('/kota/trashkota', [KotaController::class, 'trash'] );
 Route::get('/kota/restorekota{ID_KOTA?}', [KotaController::class, 'restore'] );
 Route::get('/kota/deletekota{ID_KOTA?}', [KotaController::class, 'delete'] );
+Route::get('/kota/cetakkota', [KotaController::class, 'cetak'] );
 
 
 Route::get('/supplier', [SupplierController::class, 'index'] );
@@ -69,6 +70,7 @@ Route::delete('/supplier/hapussup{ID_SUP}', [SupplierController::class, 'hapus']
 Route::get('/supplier/trashsup', [SupplierController::class, 'trash'] );
 Route::get('/supplier/restoresup{ID_SUP?}', [SupplierController::class, 'restore'] );
 Route::get('/supplier/deletesup{ID_SUP?}', [SupplierController::class, 'delete'] );
+Route::get('/supplier/cetaksupplier', [SupplierController::class, 'cetak'] );
 
 
 Route::get('/jenisbarang', [JenisController::class, 'index'] );
@@ -85,6 +87,7 @@ Route::delete('/jenisbarang/hapusjenis{ID_JB}', [JenisController::class, 'hapus'
 Route::get('/jenisbarang/trashjenis', [JenisController::class, 'trash'] );
 Route::get('/jenisbarang/restorejenis{ID_JB?}', [JenisController::class, 'restore'] );
 Route::get('/jenisbarang/deletejenis{ID_JB?}', [JenisController::class, 'delete'] );
+Route::get('/jenisbarang/cetakjenis', [JenisController::class, 'cetak'] );
 
 
 Route::get('/barang', [BarangController::class, 'index'] );
@@ -100,6 +103,7 @@ Route::delete('/barang/hapusbarang{KODE_BARANG}', [BarangController::class, 'hap
 Route::get('/barang/trashbarang', [BarangController::class, 'trash'] );
 Route::get('/barang/restorebarang{KODE_BARANG?}', [BarangController::class, 'restore'] );
 Route::get('/barang/deletebarang{KODE_BARANG?}', [BarangController::class, 'delete'] );
+Route::get('/barang/cetakbarang', [BarangController::class, 'cetak'] );
 
 
 Route::get('/role', [RoleController::class, 'index'] );
@@ -117,6 +121,7 @@ Route::delete('/role/hapusrole{ID_ROLE}', [RoleController::class, 'hapus'] );
 Route::get('/role/trashrole', [RoleController::class, 'trash'] );
 Route::get('/role/restorerole{ID_ROLE?}', [RoleController::class, 'restore'] );
 Route::get('/role/deleterole{ID_ROLE?}', [RoleController::class, 'delete'] );
+Route::get('/role/cetakrole', [RoleController::class, 'cetak'] );
 
 
 Route::get('/ukuran', [UkuranController::class, 'index'] );
@@ -133,6 +138,7 @@ Route::delete('/ukuran/hapusukuran{ID_UKURAN}', [UkuranController::class, 'hapus
 Route::get('/ukuran/trashukuran', [UkuranController::class, 'trash'] );
 Route::get('/ukuran/restoreukuran{ID_UKURAN?}', [UkuranController::class, 'restore'] );
 Route::get('/ukuran/deleteukuran{ID_UKURAN?}', [UkuranController::class, 'delete'] );
+Route::get('/ukuran/cetakukuran', [UkuranController::class, 'cetak'] );
 
 
 Route::get('/warna', [WarnaController::class, 'index'] );
@@ -149,6 +155,7 @@ Route::delete('/warna/hapuswarna{ID_WARNA}', [WarnaController::class, 'hapus'] )
 Route::get('/warna/trashwarna', [WarnaController::class, 'trash'] );
 Route::get('/warna/restorewarna{ID_WARNA?}', [WarnaController::class, 'restore'] );
 Route::get('/warna/deletewarna{ID_WARNA?}', [WarnaController::class, 'delete'] );
+Route::get('/warna/cetakwarna', [WarnaController::class, 'cetak'] );
 
 
 Route::get('/user', [UserController::class, 'index'] );

@@ -18,6 +18,16 @@ class UkuranController extends Controller
         ]);
     }
 
+    public function cetak(){
+        //ambil data dari table ukuran
+        $cetakUkuran = DB::table('ukuran')->where('DELETED_AT',null)->get();
+
+        //mengirim data ke view ukuran
+        return view('dataukuran.cetakukuran', [
+            'data' => $cetakUkuran
+        ]);
+    }
+
     public function cari(Request $request)
 	{
 		// menangkap data pencarian
