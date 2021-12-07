@@ -9,6 +9,9 @@ use App\Http\Controllers\JenisController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\UkuranController;
 use App\Http\Controllers\WarnaController;
+use App\Http\Controllers\PesanController;
+use App\Http\Controllers\TerimaController;
+use App\Http\Controllers\BayarController;
 
 
 /*
@@ -160,6 +163,22 @@ Route::get('/warna/cetakwarna', [WarnaController::class, 'cetak'] );
 
 Route::get('/user', [UserController::class, 'index'] );
 Route::get('/user/adduser', [UserController::class, 'add'] );
+
+
+Route::get('/pemesanan', [PesanController::class, 'index'] );
+// Route::get('/pemesanan/cari', [PesanController::class, 'cari'] );
+Route::get('/pemesanan/addpesan', [PesanController::class, 'add'] );
+Route::post('/pemesanan/store', [PesanController::class, 'store'] );
+
+Route::get('/penerimaan', [TerimaController::class, 'index'] );
+// Route::get('/penerimaan/cari', [TerimaController::class, 'cari'] );
+Route::get('/penerimaan/addterima', [TerimaController::class, 'add'] );
+Route::post('/penerimaan/store', [TerimaController::class, 'store'] );
+
+Route::get('/pembayaran', [BayarController::class, 'index'] );
+// Route::get('/pembayaran/cari', [BayarController::class, 'cari'] );
+Route::get('/pembayaran/addbayar', [BayarController::class, 'add'] );
+Route::post('/pembayaran/store', [BayarController::class, 'store'] );
 
 
 Route::get('/login', function () {
