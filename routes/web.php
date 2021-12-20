@@ -179,6 +179,16 @@ Route::get('/pembayaran', [BayarController::class, 'index'] );
 // Route::get('/pembayaran/cari', [BayarController::class, 'cari'] );
 Route::get('/pembayaran/addbayar', [BayarController::class, 'add'] );
 Route::post('/pembayaran/store', [BayarController::class, 'store'] );
+Route::get('/pembayaran/editbayar{ID_BAYAR}', [BayarController::class, 'edit'] );
+Route::post('/pembayaran/updatebayar', [BayarController::class, 'update'] );
+// Route::get('/pembayaran/hapusbayar{ID_BAYAR}', [BayarController::class, 'delete'] );
+// Route::delete('/pembayaran/hapusbayar{ID_BAYAR}', [BayarController::class, 'delete'] );
+// Route::get('/pembayaran/hapusbayar{ID_BAYAR}', [BayarController::class, 'hapus'] );
+Route::delete('/pembayaran/hapusbayar{ID_BAYAR}', [BayarController::class, 'hapus'] );
+Route::get('/pembayaran/trashbayar', [BayarController::class, 'trash'] );
+Route::get('/pembayaran/restorebayar{ID_BAYAR?}', [BayarController::class, 'restore'] );
+Route::get('/pembayaran/deletebayar{ID_BAYAR?}', [BayarController::class, 'delete'] );
+Route::get('/pembayaran/cetakbayar', [BayarController::class, 'cetak'] );
 
 
 Route::get('/login', function () {

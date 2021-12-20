@@ -20,6 +20,16 @@ class BarangController extends Controller
 
     }
 
+    public function cetak(){
+        //ambil data dari table barang
+        $cetakBarang = DB::table('barang')->where('DELETED_AT',null)->get();
+
+        //mengirim data ke view barang
+        return view('databarang.cetakbarang', [
+            'data' => $cetakBarang
+        ]);
+    }
+
     public function cari(Request $request)
 	{
 		// menangkap data pencarian

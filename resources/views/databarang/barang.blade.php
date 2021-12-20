@@ -35,6 +35,9 @@
                   <a href="/barang/trashbarang" class="btn btn-danger btn-sm">
                     <i class="fa fa-trash"></i> Sampah
                   </a>
+                  <a href="/barang/cetakbarang" target="_blank" class="btn btn-primary btn-sm">
+                    <i class="fa fa-print"></i> Print
+                  </a>
                   <a href="/barang/addbarang" class="btn btn-success btn-sm">
                     <i class="fa fa-plus"></i> Add
                   </a>

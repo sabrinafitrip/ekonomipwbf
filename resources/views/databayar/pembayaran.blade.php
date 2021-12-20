@@ -20,6 +20,12 @@
                 </div>
 
                 <div class="pull-right">
+                  <a href="/pembayaran/trashbayar" class="btn btn-danger btn-sm">
+                    <i class="fa fa-trash"></i> Sampah
+                  </a>
+                  <a href="/pembayaran/cetakbayar" target="_blank" class="btn btn-primary btn-sm">
+                    <i class="fa fa-print"></i> Print
+                  </a>
                     <a href="/pembayaran/addbayar" class="btn btn-success btn-sm">
                       <i class="fa fa-plus"></i> Add
                     </a>
@@ -46,11 +52,31 @@
                   <a href="" class="btn btn-primary btn-sm">
                     <i class="fa fa-pencil"></i>
                   </a>
+                  <form action="/pembayaran/hapusbayar{{ $pembayaran->ID_BAYAR }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-danger btn-sm">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </form>
+                    {{-- <a href="/pembayaran/hapusbayar{{ $pembayaran->ID_BAYAR }}" class="btn btn-danger btn-sm">
+                      <i class="fa fa-trash"></i>
+                  </a> --}}
                 </td>
               </tr>
               @endforeach
         </tbody>
       </table>
+      <div>
+        Showing 
+        {{ $data->firstItem() }}
+        to
+        {{ $data->lastItem() }}
+        of
+        {{ $data->total() }}
+        entries
+      </div>
+      <div class="pull-right">{{ $data->links() }}</div>
             </div>
         </div>
     </div>
