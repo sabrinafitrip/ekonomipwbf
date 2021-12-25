@@ -169,11 +169,33 @@ Route::get('/pemesanan', [PesanController::class, 'index'] );
 // Route::get('/pemesanan/cari', [PesanController::class, 'cari'] );
 Route::get('/pemesanan/addpesan', [PesanController::class, 'add'] );
 Route::post('/pemesanan/store', [PesanController::class, 'store'] );
+Route::get('/pemesanan/editpesan{ID_PESAN}', [PesanController::class, 'edit'] );
+Route::post('/pemesanan/updatepesan', [PesanController::class, 'update'] );
+// Route::get('/pemesanan/hapuspesan{ID_PESAN}', [PesanController::class, 'delete'] );
+// Route::delete('/pemesanan/hapuspesan{ID_PESAN}', [PesanController::class, 'delete'] );
+// Route::get('/pemesanan/hapuspesan{ID_PESAN}', [PesanController::class, 'hapus'] );
+Route::delete('/pemesanan/hapuspesan{ID_PESAN}', [PesanController::class, 'hapus'] );
+Route::get('/pemesanan/trashpesan', [PesanController::class, 'trash'] );
+Route::get('/pemesanan/restorepesan{ID_PESAN?}', [PesanController::class, 'restore'] );
+Route::get('/pemesanan/deletepesan{ID_PESAN?}', [PesanController::class, 'delete'] );
+Route::get('/pemesanan/cetakpesan', [PesanController::class, 'cetak'] );
+
 
 Route::get('/penerimaan', [TerimaController::class, 'index'] );
 // Route::get('/penerimaan/cari', [TerimaController::class, 'cari'] );
 Route::get('/penerimaan/addterima', [TerimaController::class, 'add'] );
 Route::post('/penerimaan/store', [TerimaController::class, 'store'] );
+Route::get('/penerimaan/editterima{ID_TERIMA}', [TerimaController::class, 'edit'] );
+Route::post('/penerimaan/updateterima', [TerimaController::class, 'update'] );
+// Route::get('/penerimaan/hapusterima{ID_TERIMA}', [TerimaController::class, 'delete'] );
+// Route::delete('/penerimaan/hapusterima{ID_TERIMA}', [TerimaController::class, 'delete'] );
+// Route::get('/penerimaan/hapusterima{ID_TERIMA}', [TerimaController::class, 'hapus'] );
+Route::delete('/penerimaan/hapusterima{ID_TERIMA}', [TerimaController::class, 'hapus'] );
+Route::get('/penerimaan/trashterima', [TerimaController::class, 'trash'] );
+Route::get('/penerimaan/restoreterima{ID_TERIMA?}', [TerimaController::class, 'restore'] );
+Route::get('/penerimaan/deleteterima{ID_TERIMA?}', [TerimaController::class, 'delete'] );
+Route::get('/penerimaan/cetakterima', [TerimaController::class, 'cetak'] );
+
 
 Route::get('/pembayaran', [BayarController::class, 'index'] );
 // Route::get('/pembayaran/cari', [BayarController::class, 'cari'] );
