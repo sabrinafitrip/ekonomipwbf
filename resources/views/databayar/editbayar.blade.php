@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-header">
                 <div class="pull -left">
-                    <strong>Edit Pembayaran</strong>
+                    <strong>Edit pembayaran</strong>
                 </div>
 
                 <div class="pull-right">
@@ -30,16 +30,28 @@
                         <div class="col-md-4 offset-md-4">
                             <form action="/pembayaran/updatebayar" method="post">
                                 @csrf
-                                <div class="form-group" >
+                                {{-- <div class="form-group">
+                                    <label>Tanggal terima</label>
+                                    <select name="id_terima" class="form-control" autofocus required>
+                                        <option value="">- pilih -</option> 
+                                        @foreach ($penerimaans as $data)
+                                            <option value="{{ $data->ID_TERIMA }}">{{ $data->TGL_TERIMA }}</option>
+                                        @endforeach         
+                                </select>
+                                </div> --}}
+                                
+                                <div class="form-group">
                                     <label>Tanggal Pembayaran</label>
-                                    <input type="date" name="pembayaran" class="form-control" value="{{ $data->PEMBAYARAN }}" autofocus required>
+                                    <input type="date" name="tgl_bayar" class="form-control" value="{{ $data->TGL_BAYAR }}" autofocus required>
                                     <input type="hidden" class="form-control" value="{{ $data->ID_BAYAR }}" value="" name="id"/>
                                 </div>
-                                <div class="form-group" >
-                                    <label>Total Pembayaran</label>
-                                    <input type="text" name="pembayaran" class="form-control" value="{{ $data->PEMBAYARAN }}" autofocus required>
+                                <div class="form-group">
+                                    <label>Total bayar</label>
+                                    <input type="tel" name="total_bayar" class="form-control" value="{{ $data->TOTAL_BAYAR }}" autofocus required>
                                     <input type="hidden" class="form-control" value="{{ $data->ID_BAYAR }}" value="" name="id"/>
                                 </div>
+
+
                                     <button type="submit" class="btn btn-success">Save</button>
                             </form>
                         </div>

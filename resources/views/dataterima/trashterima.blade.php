@@ -41,9 +41,9 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>id penerimaan</th>
-                <th>id supplier</th>
-                {{-- <th>id user</th> --}}
+                <th>id_terima</th>
+                <th>id_user</th>
+                <th>id_sup</th>
                 <th>tanggal penerimaan</th>
                 <th>total harga</th>
                 <th>status penerimaan</th>
@@ -56,8 +56,8 @@
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $penerimaan->ID_TERIMA }}</td>
+                  <td>{{ $penerimaan->ID_USER }}</td>
                   <td>{{ $penerimaan->ID_SUP }}</td>
-                  {{-- <td>{{ $penerimaan->ID_USER }}</td> --}}
                   <td>{{ $penerimaan->TGL_TERIMA }}</td>
                   <td>{{ $penerimaan->TOTAL_HARGA }}</td>
                   <td>{{ $penerimaan->STATUS_TERIMA }}</td>

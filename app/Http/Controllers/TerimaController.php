@@ -5,28 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Penerimaan;
-
+use App\Models\supplier;
+use App\Models\userr;
 
 class TerimaController extends Controller
 {
     public function index(){
-        //ambil data dari table penerimaan
+        //ambil data dari table pemesanan
         $penerimaan = DB::table('penerimaan')->where('DELETED_AT',null)->paginate(5);
 
-        //mengirim data ke view penerimaan
+        //mengirim data ke view pemesanan
         return view('dataterima.penerimaan', [
             'data' => $penerimaan
         ]);
-    }
 
-    public function cetak(){
-        //ambil data dari table penerimaan
-        $cetakTerima = DB::table('penerimaan')->where('DELETED_AT',null)->get();
-
-        //mengirim data ke view penerimaan
-        return view('dataterima.cetakterima', [
-            'data' => $cetakTerima
-        ]);
     }
 
     public function cari(Request $request)
@@ -34,24 +26,36 @@ class TerimaController extends Controller
 		// menangkap data pencarian
 		$cari = $request->cari;
  
-    		// mengambil data dari table penerimaan sesuai pencarian data
+    		// mengambil data dari table pemesanan sesuai pencarian data
 		$penerimaan = DB::table('penerimaan')
-		->where('TGL_TERIMA','like',"%".$cari."%")
+		->where('ID_TERIMA','like',"%".$cari."%")
 		->paginate();
-
-    		// mengirim data penerimaan ke view index
-		return view('dataterima.',['dataterima.penerimaan' => $penerimaan]);
+ 
+    		// mengirim data supplier ke view index
+		return view('dataterima.penerimaan',['data' => $penerimaan]);
  
 	}
 
+    public function cetak(){
+        //ambil data dari table pemesanan
+        $cetakPenerimaan = DB::table('penerimaan')->where('DELETED_AT',null)->get();
+
+        //mengirim data ke view supplier
+        return view('dataterima.cetakterima', [
+            'data' => $cetakPenerimaan
+        ]);
+    }
+
     public function add(){
-        return view('dataterima.addterima');
+        $suppliers= supplier::all();
+        $users= userr::all();
+        return view('dataterima.addterima', compact('suppliers','users'));
     }
 
     public function store(Request $request){
-        $penerimaan = new Penerimaan; 
+        $penerimaan = new Penerimaan;
         $penerimaan->ID_TERIMA = $request->id_terima;
-        // $penerimaan->ID_USER = $request->id_user;
+        $penerimaan->ID_USER = $request->id_user;
         $penerimaan->ID_SUP = $request->id_sup;
         $penerimaan->TGL_TERIMA = $request->tgl_terima;
         $penerimaan->TOTAL_HARGA = $request->total_harga;
@@ -71,31 +75,44 @@ class TerimaController extends Controller
                 document.location.href='/addterima'
             </script>
             ";
-        }
-    }
+            }
+       }
 
-    
-    public function edit($id){
-        // mengambil data terima berdasarkan id yang dipilih
+       public function edit($id){
+        // mengambil data barang berdasarkan id yang dipilih
         $penerimaan = DB::table('penerimaan')->where('ID_TERIMA',$id)->get(); 
 
-        // passing data terima yang didapat ke view edit.blade.php 
-        return view('dataterima.editterima', ['penerimaan' => $penerimaan]); 
+        // passing data barang yang didapat ke view edit.blade.php 
+        // return view('databarang.editbarang',compact('jenis_barangs'), ['barang' => $barang]);
+        return view('dataterima.editterima', ['penerimaan' => $penerimaan]);
+
+
     }      
 
     public function update(Request $request){
-        // update data terima
+        // update data barang
         DB::table('penerimaan')->where('ID_TERIMA',$request->id)->update([
+            // 'ID_USER' => $request->id_user,
+            // 'ID_SUP' => $request->id_sup,
             'TGL_TERIMA' => $request->tgl_terima,
             'TOTAL_HARGA' => $request->total_harga,
             'STATUS_TERIMA' => $request->status_terima,
+            
         ]);
 
-        // alihkan halaman ke halaman penerimaan
-        // return redirect('/penerimaan');
+        // alihkan halaman ke halaman barang
+        // return redirect('/barang');
         return redirect('penerimaan')->with('status', 'Data penerimaan berhasil diupdate!');
         }
 
+    // public function delete($id){
+    //     // menghapus data barang berdasarkan id yang dipilih
+    //     DB::table('penerimaan')->where('ID_TERIMA',$id)->delete();
+        
+    //     // alihkan halaman ke halaman barang
+    //     // return redirect('/penerimaan');
+    //     return redirect('penerimaan')->with('status', 'Data penerimaan berhasil dihapus!');
+    //     }
 
     public function hapus($id){
         date_default_timezone_set('Asia/Jakarta');
@@ -129,5 +146,4 @@ class TerimaController extends Controller
             }
             return redirect('/penerimaan/trashterima')->with('status','data penerimaan berhasil di hapus permanen');
         }
-
 }

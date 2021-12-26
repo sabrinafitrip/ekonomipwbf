@@ -20,19 +20,19 @@
             <p align="center"><b>Laporan Data Pembayaran</b></p>
             <table class="static" align="center" rules="all" border="1px" style="width: 95%;">
                 <tr>
-                    <th>No.</th>
-                    <th>Id Pembayaran</th>
-                    <th>Id Terima</th>
-                    <th>Tanggal Pembayaran</th>
-                    <th>Total Pembayaran</th>
+                    <th>No</th>
+                    <th>id_bayar</th>
+                    <th>id_terima</th>
+                    <th>tanggal pembayaran</th>
+                    <th>total pembayaran</th>
                 </tr>
-                @foreach ($data as $cetakBayar)
+                @foreach ($data as $cetakPembayaran)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $cetakBayar->ID_BAYAR }}</td>
-                    <td>{{ $cetakBayar->ID_TERIMA }}</td>
-                    <td>{{ $cetakBayar->TGL_BAYAR }}</td>
-                    <td>{{ $cetakBayar->TOTAL_BAYAR }}</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $cetakPembayaran->ID_BAYAR }}</td>
+                <td>{{ $cetakPembayaran->ID_TERIMA }}</td>
+                <td>{{ $cetakPembayaran->TGL_BAYAR }}</td>
+                <td>{{ $cetakPembayaran->TOTAL_BAYAR }}</td>
                 </tr>
                 @endforeach
 

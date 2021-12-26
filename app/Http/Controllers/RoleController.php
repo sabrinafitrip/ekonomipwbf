@@ -18,16 +18,6 @@ class RoleController extends Controller
         ]);
     }
 
-    public function cetak(){
-        //ambil data dari table role
-        $cetakRole = DB::table('role')->where('DELETED_AT',null)->get();
-
-        //mengirim data ke view role
-        return view('datarole.cetakrole', [
-            'data' => $cetakRole
-        ]);
-    }
-
     public function cari(Request $request)
 	{
 		// menangkap data pencarian
@@ -39,7 +29,7 @@ class RoleController extends Controller
 		->paginate();
  
     		// mengirim data supplier ke view index
-		return view('datarole.',['datarole.role' => $role]);
+		return view('datarole.role',['data' => $role]);
  
 	}
 

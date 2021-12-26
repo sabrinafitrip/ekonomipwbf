@@ -18,16 +18,6 @@ class UkuranController extends Controller
         ]);
     }
 
-    public function cetak(){
-        //ambil data dari table ukuran
-        $cetakUkuran = DB::table('ukuran')->where('DELETED_AT',null)->get();
-
-        //mengirim data ke view ukuran
-        return view('dataukuran.cetakukuran', [
-            'data' => $cetakUkuran
-        ]);
-    }
-
     public function cari(Request $request)
 	{
 		// menangkap data pencarian
@@ -49,7 +39,7 @@ class UkuranController extends Controller
 
 
     public function store(Request $request){
-        $ukuran = new ukuran; 
+        $ukuran = new Ukuran; 
         $ukuran->ID_UKURAN = $request->id_ukuran;
         $ukuran->UKURAN = $request->Ukuran;
 
@@ -131,7 +121,4 @@ class UkuranController extends Controller
         }
         return redirect('/ukuran/trashukuran')->with('status','data ukuran berhasil di hapus permanen');
     }
-
 }
-
-?>

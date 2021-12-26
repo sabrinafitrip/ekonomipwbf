@@ -20,23 +20,23 @@
             <p align="center"><b>Laporan Data Penerimaan</b></p>
             <table class="static" align="center" rules="all" border="1px" style="width: 95%;">
                 <tr>
-                    <th>No.</th>
-                    <th>Id Penerimaan</th>
-                    {{-- <th>Id User</th> --}}
-                    <th>Id Supplier</th>
-                    <th>Tanggal Penerimaan</th>
-                    <th>Total Harga</th>
-                    <th>Status Penerimaan</th>
+                <th>No</th>
+                <th>id_terima</th>
+                <th>id_user</th>
+                <th>id_sup</th>
+                <th>tanggal penerimaan</th>
+                <th>total harga</th>
+                <th>status penerimaan</th>
                 </tr>
-                @foreach ($data as $cetakTerima)
+                @foreach ($data as $cetakPenerimaan)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $cetakTerima->ID_TERIMA }}</td>
-                    {{-- <td>{{ $cetakTerima->ID_USER }}</td> --}}
-                    <td>{{ $cetakTerima->ID_SUP }}</td>
-                    <td>{{ $cetakTerima->TGL_TERIMA }}</td>
-                    <td>{{ $cetakTerima->TOTAL_HARGA }}</td> 
-                    <td>{{ $cetakTerima->STATUS_TERIMA }}</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $cetakPenerimaan->ID_TERIMA }}</td>
+                <td>{{ $cetakPenerimaan->ID_USER }}</td>
+                <td>{{ $cetakPenerimaan->ID_SUP }}</td>
+                <td>{{ $cetakPenerimaan->TGL_TERIMA }}</td>
+                <td>{{ $cetakPenerimaan->TOTAL_HARGA }}</td>
+                <td>{{ $cetakPenerimaan->STATUS_TERIMA }}</td>
                 </tr>
                 @endforeach
 

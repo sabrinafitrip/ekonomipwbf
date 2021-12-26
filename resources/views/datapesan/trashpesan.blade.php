@@ -41,9 +41,9 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>id pemesanan</th>
-                <th>id supplier</th>
-                {{-- <th>id user</th> --}}
+                <th>id_pesan</th>
+                <th>id_sup</th>
+                <th>id_user</th>
                 <th>tanggal pemesanan</th>
                 <th>status pemesanan</th>
                 <th></th>
@@ -56,7 +56,7 @@
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $pemesanan->ID_PESAN }}</td>
                   <td>{{ $pemesanan->ID_SUP }}</td>
-                  {{-- <td>{{ $pemesanan->ID_USER }}</td> --}}
+                  <td>{{ $pemesanan->ID_USER }}</td>
                   <td>{{ $pemesanan->TGL_PESAN }}</td>
                   <td>{{ $pemesanan->STATUS_PESAN }}</td>
                 <td class="text-center">

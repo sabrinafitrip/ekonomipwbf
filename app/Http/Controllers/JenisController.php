@@ -19,16 +19,6 @@ class JenisController extends Controller
         ]);
     }
 
-    public function cetak(){
-        //ambil data dari table jenis barang
-        $cetakJenis = DB::table('jenis_barang')->where('DELETED_AT',null)->get();
-
-        //mengirim data ke view jenis barang
-        return view('jenisbarang.cetakjenis', [
-            'data' => $cetakJenis
-        ]);
-    }
-
     public function cari(Request $request)
 	{
 		// menangkap data pencarian
@@ -130,6 +120,5 @@ class JenisController extends Controller
         }
         return redirect('/jenisbarang/trashjenis')->with('status','jenis barang berhasil di hapus permanen');
     }
-    
     
 }

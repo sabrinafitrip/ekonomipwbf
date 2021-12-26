@@ -20,19 +20,21 @@
             <p align="center"><b>Laporan Data Pemesanan</b></p>
             <table class="static" align="center" rules="all" border="1px" style="width: 95%;">
                 <tr>
-                    <th>No.</th>
-                    <th>Id Pemesanan</th>
-                    <th>Id Supplier</th>
-                    <th>Tanggal Pemesanan</th>
-                    <th>Status Pemesanan</th>
+                    <th>No</th>
+                    <th>id_pesan</th>
+                    <th>id_sup</th>
+                    <th>id_user</th>
+                    <th>tanggal pemesanan</th>
+                    <th>status pemesanan</th>
                 </tr>
-                @foreach ($data as $cetakPesan)
+                @foreach ($data as $cetakPemesanan)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $cetakPesan->ID_PESAN }}</td>
-                    <td>{{ $cetakPesan->ID_SUP }}</td>
-                    <td>{{ $cetakPesan->TGL_PESAN }}</td>
-                    <td>{{ $cetakPesan->STATUS_PESAN }}</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $cetakPemesanan->ID_PESAN }}</td>
+                <td>{{ $cetakPemesanan->ID_SUP }}</td>
+                <td>{{ $cetakPemesanan->ID_USER }}</td>
+                <td>{{ $cetakPemesanan->TGL_PESAN }}</td>
+                <td>{{ $cetakPemesanan->STATUS_PESAN }}</td>
                 </tr>
                 @endforeach
 

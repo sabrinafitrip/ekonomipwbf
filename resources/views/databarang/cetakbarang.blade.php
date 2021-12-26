@@ -20,23 +20,23 @@
             <p align="center"><b>Laporan Data Barang</b></p>
             <table class="static" align="center" rules="all" border="1px" style="width: 95%;">
                 <tr>
-                    <th>No.</th>
-                    <th>Kode Barang</th>
-                    <th>Id Jenis Barang</th>
-                    <th>Nama Barang</th>
-                    <th>Stock Barang</th>
-                    <th>Harga Beli</th>
-                    <th>Harga Jual</th>
+                    <th>No</th>
+                    <th>kode_barang</th>
+                    <th>nama barang</th>
+                    <th>id_jenisbarang</th>
+                    <th>stock barang</th>
+                    <th>harga beli</th>
+                    <th>harga jual</th>
                 </tr>
                 @foreach ($data as $cetakBarang)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $cetakBarang->KODE_BARANG }}</td>
-                    <td>{{ $cetakBarang->ID_JB }}</td>
-                    <td>{{ $cetakBarang->NAMA_BARANG }}</td>
-                    <td>{{ $cetakBarang->STOCK_BARANG }}</td>
-                    <td>{{ $cetakBarang->HARGA_BELI_BARANG }}</td>
-                    <td>{{ $cetakBarang->HARGA_JUAL_BARANG }}</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $cetakBarang->KODE_BARANG }}</td>
+                <td>{{ $cetakBarang->NAMA_BARANG }}</td>
+                <td>{{ $cetakBarang->ID_JB }}</td>
+                <td>{{ $cetakBarang->STOCK_BARANG }}</td>
+                <td>{{ $cetakBarang->HARGA_BELI_BARANG }}</td>
+                <td>{{ $cetakBarang->HARGA_JUAL_BARANG }}</td>
                 </tr>
                 @endforeach
 

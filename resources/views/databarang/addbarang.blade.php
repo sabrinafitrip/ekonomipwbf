@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>jenis barang</label>
-                                    <select name="id_jb" class="form-control">
+                                    <select name="id_jb" class="form-control" autofocus required>
                                         <option value="">- pilih -</option> 
                                         @foreach ($jenis_barangs as $data)
                                             <option value="{{ $data->ID_JB }}">{{ $data->JENIS_BARANG }}</option>
@@ -45,15 +45,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Masukkan stock</label>
-                                    <input type="text" name="stock_barang" class="form-control">
+                                    <input type="text" name="stock_barang" class="form-control" autofocus required>
                                 </div>
                                 <div class="form-group">
                                     <label>Harga Beli</label>
-                                    <input type="tel" name="harga_beli_barang" class="form-control">
+                                    <input type="tel" name="harga_beli_barang" class="form-control" autofocus required>
                                 </div>
                                 <div class="form-group">
                                     <label>Harga Jual</label>
-                                    <input type="tel" name="harga_jual_barang" class="form-control">
+                                    <input type="tel" name="harga_jual_barang" class="form-control" autofocus required>
                                 </div>
 
                                     <button type="submit" class="btn btn-success">Save</button>

@@ -30,6 +30,7 @@
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        {{-- <li class="nav-item"><a class="nav-link" href="/register">Register</a></li> --}}
                         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                     </ul>
                 </div>
@@ -89,6 +90,34 @@
                 </ul>
             </div>
         </section>
+       
+        <!-- Contact-->
+        {{-- <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Login</h2> --}}
+                   
+                {{-- </div>
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- username input-->
+                                <input class="form-control" id="username" type="text" placeholder="Username *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A username is required.</div> 
+                            </div>
+                            <div class="form-group"> --}}
+                                <!-- password input-->
+                                {{-- <input class="form-control" id="password" type="text" placeholder="Password *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An password is required.</div>
+                            </div> --}}
+                           
+                    <!-- Submit Button-->
+                    {{-- <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Login</button></div> --}}
+                    {{-- <a class="btn btn-primary btn-xl text-uppercase" href="#">Login</a>
+                </form> --}}
+            {{-- </div>
+        </section> --}}
 
         <!-- Footer-->
         <footer class="footer py-4">

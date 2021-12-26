@@ -12,7 +12,6 @@ class SupplierController extends Controller
     public function index(){
         //ambil data dari table supplier
         $supplier = DB::table('supplier')->where('DELETED_AT',null)->paginate(5);
-
         //mengirim data ke view supplier
         return view('supplier', [
             'data' => $supplier
@@ -34,6 +33,16 @@ class SupplierController extends Controller
 		return view('supplier',['data' => $supplier]);
  
 	}
+
+    public function cetak(){
+        //ambil data dari table supplier
+        $cetakSupplier = DB::table('supplier')->where('DELETED_AT',null)->get();
+
+        //mengirim data ke view supplier
+        return view('cetaksupp', [
+            'data' => $cetakSupplier
+        ]);
+    }
 
     public function add(){
         $kotas= kota::all();
@@ -66,11 +75,14 @@ class SupplierController extends Controller
        }
 
     public function edit($id){
-        // mengambil data supplier berdasarkan id yang dipilih
+        // // mengambil data supplier berdasarkan id yang dipilih
         $supplier = DB::table('supplier')->where('ID_SUP',$id)->get(); 
     
-        // passing data supplier yang didapat ke view edit.blade.php 
+        // // passing data supplier yang didapat ke view edit.blade.php 
         return view('editsupp', ['supplier' => $supplier]);
+
+        // $kotas= kota::all();
+        // return view('editsupp', compact('supplier','kotas'));
     }    
 
     public function update(Request $request){
@@ -128,6 +140,8 @@ class SupplierController extends Controller
         }
         return redirect('/supplier/trashsup')->with('status','data supplier berhasil di hapus permanen');
     }
+
+
 
 }
 

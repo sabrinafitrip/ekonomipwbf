@@ -37,7 +37,7 @@
                                 </div>
                                 {{-- <div class="form-group">
                                     <label>jenis barang</label>
-                                    <select name="id_jb" class="form-control">
+                                    <select name="id_jb" class="form-control" autofocus required>
                                         <option value="">- pilih -</option> 
                                         @foreach ($jenis_barangs as $data)
                                             <option value="{{ $data->ID_JB }}">{{ $data->JENIS_BARANG }}</option>
@@ -46,17 +46,17 @@
                                 </div> --}}
                                 <div class="form-group">
                                     <label>Masukkan stock</label>
-                                    <input type="text" name="stock_barang" value="{{ $data->STOCK_BARANG }}" class="form-control" >
+                                    <input type="text" name="stock_barang" value="{{ $data->STOCK_BARANG }}" class="form-control" autofocus required >
                                     <input type="hidden" class="form-control" value="{{ $data->KODE_BARANG }}" value="" name="id"/>
                                 </div>
                                 <div class="form-group">
                                     <label>Harga Beli</label>
-                                    <input type="tel" name="harga_beli_barang"  value="{{ $data->HARGA_BELI_BARANG }}" class="form-control">
+                                    <input type="tel" name="harga_beli_barang"  value="{{ $data->HARGA_BELI_BARANG }}" class="form-control" autofocus required>
                                     <input type="hidden" class="form-control" value="{{ $data->KODE_BARANG }}" value="" name="id"/>
                                 </div>
                                 <div class="form-group">
                                     <label>Harga Jual</label>
-                                    <input type="tel" name="harga_jual_barang" value="{{ $data->HARGA_JUAL_BARANG }}" class="form-control">
+                                    <input type="tel" name="harga_jual_barang" value="{{ $data->HARGA_JUAL_BARANG }}" class="form-control" autofocus required>
                                     <input type="hidden" class="form-control" value="{{ $data->KODE_BARANG }}" value="" name="id"/>
                                 </div>
 

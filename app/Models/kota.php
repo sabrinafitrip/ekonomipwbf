@@ -15,5 +15,9 @@ class kota extends Model
         
     }
 
+    public function pegawai(){
+        return $this->hasMany(supplier::class);
+    } 
+
 
 }

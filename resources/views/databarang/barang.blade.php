@@ -35,9 +35,11 @@
                   <a href="/barang/trashbarang" class="btn btn-danger btn-sm">
                     <i class="fa fa-trash"></i> Sampah
                   </a>
+                  @if(auth()->user()->level == 'admin')
                   <a href="/barang/cetakbarang" target="_blank" class="btn btn-primary btn-sm">
                     <i class="fa fa-print"></i> Print
                   </a>
+                  @endif
                   <a href="/barang/addbarang" class="btn btn-success btn-sm">
                     <i class="fa fa-plus"></i> Add
                   </a>
@@ -58,10 +60,8 @@
               </tr>
             </thead>
             <tbody>
-              @foreach($data as $key =>$barang )
-              <tbody>
+              @foreach($data as $key => $barang )
                 <tr>
-
                   {{-- <td>{{ $loop->iteration }}</td> --}}
                   <td>{{ $data->firstItem() + $key }}</td>
                   <td>{{ $barang->KODE_BARANG }}</td>
@@ -99,6 +99,7 @@
         entries
       </div>
       <div class="pull-right">{{ $data->links() }}</div>
+      
             </div>
         </div>
     </div>

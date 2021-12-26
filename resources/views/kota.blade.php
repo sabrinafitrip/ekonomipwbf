@@ -35,9 +35,6 @@
                   <a href="/kota/trashkota" class="btn btn-danger btn-sm">
                     <i class="fa fa-trash"></i> Sampah
                   </a>
-                    <a href="/kota/cetakkota" target="_blank" class="btn btn-primary btn-sm">
-                      <i class="fa fa-print"></i> Print
-                    </a>
                     <a href="/kota/addkota" class="btn btn-success btn-sm">
                       <i class="fa fa-plus"></i> Add
                     </a>
@@ -89,6 +86,7 @@
         entries
       </div>
       <div class="pull-right">{{ $data->links() }}</div>
+      
             </div>
         </div>
     </div>

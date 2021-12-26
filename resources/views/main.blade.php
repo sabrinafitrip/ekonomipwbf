@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8">  
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Dashboard | Boutique</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('style/assets/css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('styleassets/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/cs-skin-elastic.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/scss/style.css') }}">
@@ -30,7 +30,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="">Boutique</a>
-                <a class="navbar-brand hidden" href="">M</a>
+                <a class="navbar-brand hidden" href="">B</a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -38,38 +38,43 @@
                     <li>
                         <a href="/dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
-            
-                    
+                
+                        
                         <li class="menu-item-has-children dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Data Master</a>
                             <ul class="sub-menu children dropdown-menu">
-                                <li><i class="fa fa-user"></i><a href="/user">User</a></li>
-                                <li><i class="fa fa-male"></i><a href="/supplier">Supplier</a></li>
+                                <li><i class="fa fa-tags"></i><a href="/jenisbarang">Jenis barang</a></li>
+                                <li><i class="fa fa-tag"></i><a href="/barang">Barang</a></li>
                                 <li><i class="fa fa-map-marker"></i><a href="/kota">Kota</a></li>
+                                <li><i class="fa fa-male"></i><a href="/supplier">Supplier</a></li>
+                        @if(auth()->user()->level == 'admin')
+                                {{-- <li><i class="fa fa-book"></i><a href="/historystock">History Stock</a></li> --}}
+                                <li><i class="fa fa-pencil"></i><a href="/ukuran">Ukuran</a></li>
+                                <li><i class="fa fa-tint"></i><a href="/warna">Warna</a></li>
                                 <li><i class="fa fa-users"></i><a href="/role">Role</a></li>
-                                <li><i class="fa fa-tag"></i><a href="barang">Barang</a></li>
-                                <li><i class="fa fa-tags"></i><a href="jenisbarang">Jenis barang</a></li>
-                                <li><i class="fa fa-pencil"></i><a href="ukuran">Ukuran</a></li>
-                                <li><i class="fa fa-tint"></i><a href="warna">Warna</a></li>
-                            </ul>
+                                <li><i class="fa fa-user"></i><a href="/user">User</a></li>
+                        @endif
+                            </ul></li>
 
                             <li class="menu-item-has-children dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Data Transaksi</a>
                                 <ul class="sub-menu children dropdown-menu">
-                                    <li><i class="fa fa-envelope"></i><a href="pemesanan">Pemesanan</a></li>
-                                    <li><i class="fa fa-envelope-o"></i><a href="pemesanan">Detail Pemesanan</a></li>
-                                    <li><i class="fa fa-money"></i><a href="pembayaran">Pembayaran</a></li>
-                                    <li><i class="fa fa-check"></i><a href="penerimaan">Penerimaan</a></li>
-                                    <li><i class="fa fa-check-square-o"></i><a href="penerimaan">Detail Penerimaan</a></li>
-                                </ul>
-
+                                    <li><i class="fa fa-envelope"></i><a href="/pemesanan">Pemesanan</a></li>
+                                    {{-- <li><i class="fa fa-envelope-o"></i><a href="pemesanan">Detail Pemesanan</a></li> --}}
+                                    <li><i class="fa fa-check"></i><a href="/penerimaan">Penerimaan</a></li>
+                                    {{-- <li><i class="fa fa-check-square-o"></i><a href="penerimaan">Detail Penerimaan</a></li> --}}
+                                    @if(auth()->user()->level == 'admin')
+                                    <li><i class="fa fa-money"></i><a href="/pembayaran">Pembayaran</a></li>
+                                    @endif
+                                </ul></li>
+                                
                                 
 
                     <li>
                         <a href="/"> <i class="menu-icon fa fa-picture-o"></i>Home </a>
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-puzzle-piece"></i>History </a>
+                        <a href="/logout"> <i class="menu-icon fa fa-sign-out"></i>Logout </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -113,10 +118,11 @@
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="user-avatar rounded-circle" src="{{ asset('style/images/SR.jpeg') }}">
-                        </a>
+                        <p>{{ auth()->user()->name }}</p></a>
+
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="/logout"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
 
@@ -145,29 +151,8 @@
 
         </header><!-- /header -->
 
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Dashboard</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li class="active"><i class="fa fa-dashboard"></i></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="content mt-3">
-
             <div class="animated fadeIn">
-                
                 @yield('container')
             </div>
 

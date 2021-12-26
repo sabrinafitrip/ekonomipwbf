@@ -15,7 +15,13 @@ class Barang extends Model
         
     }
 
-    public function barang(){
-        return $this->belongsTo('App\Models\Barang');
-    } 
+    // public function barang(){
+    //     return $this->belongsTo('App\Models\Barang');
+    // } 
+
+    public function jenisbarang(){
+        return $this->belongsTo(Jenis::class, 'ID_JB');
+    }
+
+
 }

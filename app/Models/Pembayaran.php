@@ -8,15 +8,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Pembayaran extends Model
 {
-    protected $table = 'pembayaran';
+    protected $table='pembayaran';
     use SoftDeletes;
-    
+
     public function add(){
         
     }
 
-    public function pembayaran(){
-        return $this->belongsTo('App\Models\Pembayaran');
-    } 
+    // public function pembayaran(){
+    //     return $this->belongsTo('App\Models\Pembayaran');
+    // } 
 
+    public function penerimaan(){
+        return $this->belongsTo(Penerimaan::class, 'ID_TERIMA');
+    }
+
+    
 }

@@ -41,8 +41,8 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>id pembayaran</th>
-                <th>id terima</th>
+                <th>id_bayar</th>
+                <th>id_terima</th>
                 <th>tanggal pembayaran</th>
                 <th>total pembayaran</th>
                 <th></th>

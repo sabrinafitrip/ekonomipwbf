@@ -16,13 +16,14 @@
             </div>
         @endif
         <div class="row">
-          <div class="form-group">
-            <label>Cari Data Supplier :</label>
-            <form action="/supplier/cari" method="GET">
-            <input type="text" name="cari" placeholder=" cari data " value="{{ old('cari') }}">
-            <input type="submit" value="Cari">
-            </form>
-          </div>
+
+        <div class="form-group">
+          <label>Cari Data Supplier :</label>
+	        <form action="/supplier/cari" method="GET">
+		      <input type="text" name="cari" placeholder=" cari data " value="{{ old('cari') }}">
+		      <input type="submit" value="Cari">
+	        </form>
+        </div>
 
         <div class="col-md-12">
             <div class="card">
@@ -30,11 +31,16 @@
                 <div class="pull-left">
                     <strong>Supplier</strong>
                 </div>
-                
+
                 <div class="pull-right">
                   <a href="/supplier/trashsup" class="btn btn-danger btn-sm">
                     <i class="fa fa-trash"></i> Sampah
                   </a>
+                  @if(auth()->user()->level == 'admin')
+                  <a href="/supplier/cetaksupplier" target="_blank" class="btn btn-primary btn-sm">
+                    <i class="fa fa-print"></i> Print
+                  </a>
+                  @endif
                   <a href="/supplier/addsupplier" class="btn btn-success btn-sm">
                     <i class="fa fa-plus"></i> Add
                   </a>

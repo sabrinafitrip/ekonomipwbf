@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-header">
                 <div class="pull -left">
-                    <strong>Tambah pembayaran</strong>
+                    <strong>Tambah Pembayaran</strong>
                 </div>
 
                 <div class="pull-right">
@@ -25,23 +25,28 @@
                     </a>
                   </div>
 
-                  <div class="card-body">
+                <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 offset-md-4">
-                            <form action="/pembayaran/store" method="post" enctype="multipart/form-data">
+                            <form action="/pembayaran/store" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    <label>Tanggal Bayar</label>
-                                    <input type="date" name="name" class="form-control" autofocus required>
+                                    <label>Tanggal terima</label>
+                                    <select name="id_terima" class="form-control" autofocus required>
+                                        <option value="">- pilih -</option> 
+                                        @foreach ($penerimaans as $data)
+                                            <option value="{{ $data->ID_TERIMA }}">{{ $data->TGL_TERIMA }}</option>
+                                        @endforeach         
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tanggal Pembayaran</label>
+                                    <input type="date" name="tgl_bayar" class="form-control" autofocus required>
                                 </div>
                                 <div class="form-group">
                                     <label>Total Bayar</label>
-                                    <input type="text" name="name" class="form-control" autofocus required>
+                                    <input type="text" name="total_bayar" class="form-control" autofocus required>
                                 </div>
-
-                                <div class="mb-3">
-                                    <label for="image" class="form-label">Upload Image/File Bukti Bayar</label>
-                                    <input class="form-control" type="file" id="image" name="image">
-                                  </div>
 
                                     <button type="submit" class="btn btn-success">Save</button>
                             </form>
@@ -62,3 +67,5 @@
 <!-- Right Panel -->
 </body>
 </html>
+
+

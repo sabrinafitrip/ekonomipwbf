@@ -46,12 +46,12 @@
                             </div> --}}
                                 <div class="form-group">
                                     <label>Alamat Supplier</label>
-                                    <input type="text" name="alamat_sup" value="{{ $data->ALAMAT_SUP }}" class="form-control">
+                                    <input type="text" name="alamat_sup" value="{{ $data->ALAMAT_SUP }}" class="form-control" autofocus required>
                                     <input type="hidden" class="form-control" value="{{ $data->ID_SUP }}" value="" name="id"/>
                                 </div>
                                 <div class="form-group">
                                     <label>No.Telepon Supplier</label>
-                                    <input type="tel" name="telp_sup" value="{{ $data->TELP_SUP }}" class="form-control">
+                                    <input type="tel" name="telp_sup" value="{{ $data->TELP_SUP }}" class="form-control" autofocus required>
                                     <input type="hidden" class="form-control" value="{{ $data->ID_SUP }}" value="" name="id"/>
                                 </div>
 

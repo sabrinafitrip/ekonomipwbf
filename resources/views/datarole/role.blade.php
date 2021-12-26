@@ -35,9 +35,6 @@
                   <a href="/role/trashrole" class="btn btn-danger btn-sm">
                     <i class="fa fa-trash"></i> Sampah
                   </a>
-                  <a href="/role/cetakrole" target="_blank" class="btn btn-primary btn-sm">
-                    <i class="fa fa-print"></i> Print
-                  </a>
                     <a href="/role/addrole" class="btn btn-success btn-sm">
                       <i class="fa fa-plus"></i> Add
                     </a>

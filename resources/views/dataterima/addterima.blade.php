@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-header">
                 <div class="pull -left">
-                    <strong>Tambah penerimaan</strong>
+                    <strong>Tambah Penerimaan</strong>
                 </div>
 
                 <div class="pull-right">
@@ -28,19 +28,39 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 offset-md-4">
-                            <form action="">
+                            <form action="/penerimaan/store" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    <label>Tanggal Terima</label>
-                                    <input type="date" name="name" class="form-control" autofocus required>
+                                    <label>Nama Supplier</label>
+                                    <select name="id_sup" class="form-control" autofocus required>
+                                        <option value="">- pilih -</option> 
+                                        @foreach ($suppliers as $data)
+                                            <option value="{{ $data->ID_SUP }}">{{ $data->NAMA_SUP }}</option>
+                                        @endforeach         
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nama User</label>
+                                    <select name="id_user" class="form-control" autofocus required>
+                                        <option value="">- pilih -</option> 
+                                        @foreach ($users as $data)
+                                            <option value="{{ $data->ID_USER }}">{{ $data->NAMA_USER }}</option>
+                                        @endforeach         
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tanggal Penerimaan</label>
+                                    <input type="date" name="tgl_terima" class="form-control" autofocus required>
                                 </div>
                                 <div class="form-group">
                                     <label>Total Harga</label>
-                                    <input type="text" name="name" class="form-control" autofocus required>
+                                    <input type="tel" name="total_harga" class="form-control" autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Status Terima</label>
-                                    <input type="text" name="name" class="form-control" autofocus required>
+                                    <label>Status Penerimaan</label>
+                                    <input type="text" name="status_terima" class="form-control" autofocus required>
                                 </div>
+
                                     <button type="submit" class="btn btn-success">Save</button>
                             </form>
                         </div>
@@ -60,3 +80,5 @@
 <!-- Right Panel -->
 </body>
 </html>
+
+

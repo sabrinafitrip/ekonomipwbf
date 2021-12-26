@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-header">
                 <div class="pull -left">
-                    <strong>Tambah pemesanan</strong>
+                    <strong>Tambah Pemesanan</strong>
                 </div>
 
                 <div class="pull-right">
@@ -28,15 +28,35 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 offset-md-4">
-                            <form action="">
+                            <form action="/pemesanan/store" method="post">
+                                @csrf
                                 <div class="form-group">
-                                    <label>Tanggal Pesan</label>
-                                    <input type="date" name="name" class="form-control" autofocus required>
+                                    <label>Nama Supplier</label>
+                                    <select name="id_sup" class="form-control" autofocus required>
+                                        <option value="">- pilih -</option> 
+                                        @foreach ($suppliers as $data)
+                                            <option value="{{ $data->ID_SUP }}">{{ $data->NAMA_SUP }}</option>
+                                        @endforeach         
+                                </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Status Pesan</label>
-                                    <input type="text" name="name" class="form-control" autofocus required>
+                                    <label>Nama User</label>
+                                    <select name="id_user" class="form-control" autofocus required>
+                                        <option value="">- pilih -</option> 
+                                        @foreach ($users as $data)
+                                            <option value="{{ $data->ID_USER }}">{{ $data->NAMA_USER }}</option>
+                                        @endforeach         
+                                </select>
                                 </div>
+                                <div class="form-group">
+                                    <label>Tanggal Pemesanan</label>
+                                    <input type="date" name="tgl_pesan" class="form-control" autofocus required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Status Pemesanan</label>
+                                    <input type="text" name="status_pesan" class="form-control" autofocus required>
+                                </div>
+
                                     <button type="submit" class="btn btn-success">Save</button>
                             </form>
                         </div>
@@ -56,3 +76,5 @@
 <!-- Right Panel -->
 </body>
 </html>
+
+
