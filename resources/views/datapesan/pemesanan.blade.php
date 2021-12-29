@@ -55,6 +55,7 @@
                 <th>id_user</th>
                 <th>tanggal pemesanan</th>
                 <th>status pemesanan</th>
+                <th>Detail Pemesanan</th>
                 <th></th>
               </tr>
             </thead>
@@ -68,10 +69,11 @@
                   <td>{{ $pemesanan->ID_USER }}</td>
                   <td>{{ $pemesanan->TGL_PESAN }}</td>
                   <td>{{ $pemesanan->STATUS_PESAN }}</td>
+                  <td class="text-wrap"><a href="/detailPemesanan/index/{{ $pemesanan->ID_PESAN }}" class="btn btn-warning">Show</a></td>
                 <td class="text-center">
                   <a href="/pemesanan/editpesan{{ $pemesanan->ID_PESAN }}" class="btn btn-primary btn-sm">
                     <i class="fa fa-pencil"></i>
-                  </a>
+                  </a><br/><br/>
                   <form action="/pemesanan/hapuspesan{{ $pemesanan->ID_PESAN }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                     @method('delete')
                     @csrf

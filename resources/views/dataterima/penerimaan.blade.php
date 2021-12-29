@@ -56,6 +56,7 @@
                 <th>tanggal penerimaan</th>
                 <th>total harga</th>
                 <th>status penerimaan</th>
+                <th>Detail Penerimaan</th>
                 <th></th>
               </tr>
             </thead>
@@ -70,10 +71,11 @@
                   <td>{{ $penerimaan->TGL_TERIMA }}</td>
                   <td>{{ $penerimaan->TOTAL_HARGA }}</td>
                   <td>{{ $penerimaan->STATUS_TERIMA }}</td>
+                  <td class="text-wrap"><a href="/detailPenerimaan/index/{{ $penerimaan->ID_TERIMA }}" class="btn btn-warning">Show</a></td>
                 <td class="text-center">
                   <a href="/penerimaan/editterima{{ $penerimaan->ID_TERIMA }}" class="btn btn-primary btn-sm">
                     <i class="fa fa-pencil"></i>
-                  </a>
+                  </a><br/><br/>
                   <form action="/penerimaan/hapusterima{{ $penerimaan->ID_TERIMA }}" method="post" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                     @method('delete')
                     @csrf

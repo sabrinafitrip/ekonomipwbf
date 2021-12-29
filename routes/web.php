@@ -15,6 +15,9 @@ use App\Http\Controllers\HistorystockController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\BayarController;
 use App\Http\Controllers\TerimaController;
+use App\Http\Controllers\detailBarangController;
+use App\Http\Controllers\detailPemesananController;
+use App\Http\Controllers\detailPenerimaanController;
 
 
 
@@ -252,5 +255,35 @@ Route::group(['middleware' => ['auth','CheckLevel:admin']],function(){
     Route::get('/pembayaran/cetakbayar', [BayarController::class, 'cetak'] );
 
 
+
+    // DETAIL BARANG //
+    Route::get('/detailBarang/index/{KODE_BARANG}', [detailBarangController::class,'index']);
+    Route::get('/detailBarang/index/create/{KODE_BARANG}', [detailBarangController::class,'create']);
+    Route::post('/detailBarang/store', [detailBarangController::class,'store']);
+    Route::get('/detailBarang/edit/{KODE_BARANG}', [detailBarangController::class,'edit']);
+    Route::post('/detailBarang/update/{KODE_BARANG}', [detailBarangController::class,'update']);
+    Route::delete('/detailBarang/hapusdetbar{KODE_BARANG}', [detailBarangController::class, 'delete'] );
+    // Route::get('/detailBarang/trashdetbar', [detailBarangController::class, 'trash'] );
+    // Route::get('/detailBarang/restoredetbar{KODE_BARANG?}', [detailBarangController::class, 'restore'] );
+    // Route::get('/detailBarang/deletedetbar{KODE_BARANG?}', [detailBarangController::class, 'delete'] );
+
+
+    // DETAIL PEMESANAN //
+    Route::get('/detailPemesanan/index/{ID_PESAN}', [detailPemesananController::class,'index']);
+    Route::get('/detailPemesanan/index/create/{ID_PESAN}', [detailPemesananController::class,'create']);
+    Route::post('/detailPemesanan/store', [detailPemesananController::class,'store']);
+    Route::get('/detailPemesanan/edit/{ID_PESAN}', [detailPemesananController::class,'edit']);
+    Route::post('/detailPemesanan/update/{ID_PESAN}', [detailPemesananController::class,'update']);
+    Route::delete('/detailPemesanan/hapusdetpes{ID_PESAN}', [detailPemesananController::class, 'delete'] );
+
+
+    // DETAIL PENERIMAAN //
+    Route::get('/detailPenerimaan/index/{ID_TERIMA}', [detailPenerimaanController::class,'index']);
+    Route::get('/detailPenerimaan/index/create/{ID_TERIMA}', [detailPenerimaanController::class,'create']);
+    Route::post('/detailPenerimaan/store', [detailPenerimaanController::class,'store']);
+    Route::get('/detailPenerimaan/edit/{ID_TERIMA}', [detailPenerimaanController::class,'edit']);
+    Route::post('/detailPenerimaan/update/{ID_TERIMA}', [detailPenerimaanController::class,'update']);
+    Route::delete('/detailPenerimaan/hapusdetter{ID_TERIMA}', [detailPenerimaanController::class, 'delete'] );
+    
 
 });
